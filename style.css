@@ -4,12 +4,11 @@ body {
       margin: 0;
       padding: 0;
       background-color: white;
-      color: darkslategrey;
+      color: #333;
     }
 
-    /* ---- NAVIGATION ---- */
     nav {
-      background-color: #00897b;
+      background-color: darkslategray;
       padding: 18px 40px;
       display: flex;
       justify-content: space-between;
@@ -25,8 +24,8 @@ body {
       letter-spacing: 1px;
     }
     nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-    nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
-    nav ul li a:hover { color: white; border-bottom: 2px solid white; padding-bottom: 2px; }
+    nav ul li a { color: ; text-decoration: none; font-size: 15px; }
+    nav ul li a:hover { color: darkslategrey; border-bottom: 2px solid white; padding-bottom: 2px; }
 
     /* ---- HERO ---- */
     .hero {
