@@ -1,14 +1,14 @@
-
-body {
+ body {
       font-family: 'Lato', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: white;
-      color: gold;
+      background-color: #f5f5f5;
+      color: #333;
     }
 
+    /* ---- NAVIGATION ---- */
     nav {
-      background-color: darkslategray;
+      background-color: #00897b;
       padding: 18px 40px;
       display: flex;
       justify-content: space-between;
@@ -17,68 +17,62 @@ body {
       top: 0;
       z-index: 100;
     }
-    .logo {
-      color: white;
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      letter-spacing: 1px;
-    }
+    .logo { color: #fff; font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 1px; }
     nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-    nav ul li a { color: ; text-decoration: none; font-size: 15px; }
-    nav ul li a:hover { color: darkslategrey; border-bottom: 2px solid white; padding-bottom: 2px; }
+    nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
+    nav ul li a:hover { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
+
+    /* ---- ANNOUNCEMENT BANNER ---- */
+    .top-banner {
+      background-color: #004d40;
+      color: #b2dfdb;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+    .top-banner span { color: #fff; font-weight: 700; }
 
     /* ---- HERO ---- */
     .hero {
       background: linear-gradient(135deg, #004d40 0%, #00695c 50%, #00897b 100%);
-      color: white;
-      text-align: center;
-      padding: 120px 20px 100px;
-      position: relative;
-      overflow: hidden;
+      color: #fff;
+      padding: 90px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
     }
-    .hero::before {
-      content: "";
-      position: absolute; top: -60px; left: -60px;
-      width: 300px; height: 300px;
-      background-color: rgba(255,255,255,0.04);
-      border-radius: 50%;
-    }
-    .hero::after {
-      content: "";
-      position: absolute; bottom: -80px; right: -80px;
-      width: 400px; height: 400px;
-      background-color: rgba(255,255,255,0.04);
-      border-radius: 50%;
-    }
+    .hero-text { flex: 1; min-width: 280px; max-width: 580px; }
     .hero-tag {
       display: inline-block;
       background-color: rgba(255,255,255,0.15);
       color: #b2dfdb;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      padding: 6px 20px;
+      padding: 6px 18px;
       border-radius: 30px;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 62px;
-      line-height: 1.15;
-      margin: 0 auto 20px;
-      max-width: 750px;
+      font-size: 54px;
+      line-height: 1.2;
+      margin: 0 0 18px;
     }
+    .hero h1 span { color: #80cbc4; }
     .hero p {
-      font-size: 20px;
+      font-size: 18px;
       color: #b2dfdb;
-      margin: 0 auto 40px;
-      max-width: 500px;
+      margin: 0 0 35px;
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.8;
     }
-    .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
     .btn-primary {
-      background-color: white;
+      background-color: #fff;
       color: #00695c;
       padding: 15px 35px;
       font-size: 16px;
@@ -91,7 +85,7 @@ body {
     .btn-primary:hover { background-color: #e0f2f1; transform: translateY(-2px); }
     .btn-outline {
       background-color: transparent;
-      color: white;
+      color: #fff;
       padding: 15px 35px;
       font-size: 16px;
       font-weight: 700;
@@ -101,62 +95,121 @@ body {
       display: inline-block;
       transition: border-color 0.3s, transform 0.2s;
     }
-    .btn-outline:hover { border-color: whitesmoke; transform: translateY(-2px); }
+    .btn-outline:hover { border-color: #fff; transform: translateY(-2px); }
+
+    /* ---- HERO ORDER BOX ---- */
+    .hero-order-box {
+      flex: 0 0 320px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 30px;
+      color: #333;
+    }
+    .hero-order-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #00695c;
+      margin: 0 0 20px;
+      text-align: center;
+    }
+    .hero-order-box input,
+    .hero-order-box select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      font-family: 'Lato', sans-serif;
+      box-sizing: border-box;
+      color: #333;
+    }
+    .hero-order-box input:focus,
+    .hero-order-box select:focus { outline: none; border-color: #00897b; }
+    .order-btn {
+      width: 100%;
+      background-color: #00897b;
+      color: #fff;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background-color 0.3s;
+    }
+    .order-btn:hover { background-color: #00695c; }
+    .order-note { text-align: center; font-size: 12px; color: #888; margin-top: 10px; }
+
+    /* ---- HOW IT WORKS ---- */
+    .steps-section {
+      background-color: #fff;
+      padding: 70px 60px;
+      text-align: center;
+    }
+    .section-tag { display: inline-block; color: #00897b; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+    .steps-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #222; margin: 0 0 10px; }
+    .steps-section p.sub { color: #777; font-weight: 300; margin-bottom: 50px; }
+    .steps { display: flex; gap: 0; flex-wrap: wrap; justify-content: center; }
+    .step {
+      flex: 1;
+      min-width: 180px;
+      max-width: 230px;
+      padding: 30px 20px;
+      position: relative;
+    }
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background-color: #e0f2f1;
+      color: #00695c;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .step h3 { font-size: 18px; color: #222; margin-bottom: 10px; }
+    .step p { font-size: 14px; color: #777; line-height: 1.7; margin: 0; }
+    .step-arrow {
+      position: absolute;
+      top: 50px;
+      right: -15px;
+      font-size: 22px;
+      color: #b2dfdb;
+    }
+    .step:last-child .step-arrow { display: none; }
 
     /* ---- STATS BAR ---- */
     .stats-bar {
-      background-color: white;
+      background-color: #00695c;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
-    .stat-item {
-      text-align: center;
-      padding: 30px 50px;
-      border-right: 1px solid #e0e0e0;
-    }
+    .stat-item { text-align: center; padding: 30px 50px; border-right: 1px solid rgba(255,255,255,0.15); }
     .stat-item:last-child { border-right: none; }
-    .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; color: #00897b; display: block; }
-    .stat-label { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; display: block; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; display: block; }
+    .stat-label { font-size: 13px; color: #80cbc4; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; display: block; }
 
-    /* ---- SECTIONS ---- */
-    .section { padding: 80px 60px; }
+    /* ---- FEATURED DISHES ---- */
+    .section { padding: 70px 60px; }
     .grey-bg { background-color: #f0f0f0; }
     .section-header { text-align: center; margin-bottom: 50px; }
-    .section-tag { display: inline-block; color: #00897b; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
-    .section-header h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #222; margin: 0 auto; max-width: 500px; line-height: 1.3; }
-    .section-header p { color: #777; font-size: 16px; margin-top: 12px; font-weight: 300; }
-
-    /* ---- FEATURE CARDS ---- */
-    .cards { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
-    .card {
-      background-color: white;
-      border-bottom: 4px solid #00897b;
-      padding: 35px 30px;
-      flex: 1;
-      min-width: 200px;
-      max-width: 280px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,137,123,0.15); }
-    .card-icon { font-size: 38px; margin-bottom: 18px; display: block; }
-    .card h3 { font-family: 'Playfair Display', serif; color: #00695c; font-size: 22px; margin-bottom: 12px; }
-    .card p { color: #666; font-size: 15px; line-height: 1.7; margin: 0; }
-
-    /* ---- DISH CARDS ---- */
+    .section-header h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #222; margin: 0 0 10px; }
+    .section-header p { color: #777; font-size: 16px; font-weight: 300; margin: 0; }
     .dishes { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
     .dish-card {
-      background-color: white;
+      background-color: #fff;
       flex: 1;
       min-width: 200px;
       max-width: 260px;
       border: 1px solid #e8e8e8;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
       overflow: hidden;
     }
-    .dish-card:hover { transform: translateY(-5px); }
+    .dish-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,137,123,0.12); }
     .dish-img-placeholder {
       width: 100%;
       height: 160px;
@@ -164,69 +217,107 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 50px;
+      font-size: 52px;
     }
-    .dish-info { padding: 20px; }
-    .dish-info h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #222; margin: 0 0 6px; }
-    .dish-info p { color: #888; font-size: 14px; line-height: 1.6; margin: 0 0 12px; }
+    .dish-badge {
+      background-color: #00897b;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      display: inline-block;
+      margin: 12px 15px 0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .dish-info { padding: 10px 15px 18px; }
+    .dish-info h3 { font-family: 'Playfair Display', serif; font-size: 19px; color: #222; margin: 0 0 5px; }
+    .dish-info p { color: #888; font-size: 13px; line-height: 1.6; margin: 0 0 12px; }
+    .dish-footer { display: flex; justify-content: space-between; align-items: center; }
     .dish-price { font-size: 20px; font-weight: 700; color: #00897b; }
+    .add-btn {
+      background-color: #00897b;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background-color 0.3s;
+    }
+    .add-btn:hover { background-color: #00695c; }
     .menu-btn-wrap { text-align: center; margin-top: 40px; }
-    .btn-teal { background-color: #00897b; color: white; padding: 15px 40px; font-size: 16px; font-weight: 700; text-decoration: none; border-radius: 4px; display: inline-block; transition: background-color 0.3s, transform 0.2s; }
+    .btn-teal {
+      background-color: #00897b;
+      color: #fff;
+      padding: 15px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background-color 0.3s, transform 0.2s;
+    }
     .btn-teal:hover { background-color: #00695c; transform: translateY(-2px); }
 
-    /* ---- HOURS ---- */
-    .hours-section {
-      background: linear-gradient(135deg, #004d40, #00695c);
-      color: white;
-      padding: 80px 60px;
-      text-align: center;
-    }
-    .hours-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin: 0 0 10px; }
-    .hours-section .subtitle { color: #b2dfdb; font-weight: 300; margin-bottom: 40px; font-size: 16px; }
-    .hours-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    .hour-card {
-      background-color: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 25px 35px;
+    /* ---- DELIVERY FEATURES ---- */
+    .features-section { background-color: #fff; padding: 70px 60px; }
+    .features-section .section-header { margin-bottom: 50px; }
+    .features { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+    .feature-card {
+      flex: 1;
       min-width: 200px;
+      max-width: 260px;
+      padding: 35px 25px;
+      text-align: center;
+      background-color: #f9f9f9;
+      border-top: 4px solid #00897b;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .hour-day { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #80cbc4; margin-bottom: 8px; }
-    .hour-time { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; }
-    .hours-address { margin-top: 30px; color: #80cbc4; font-size: 14px; }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,137,123,0.1); }
+    .feature-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+    .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #00695c; margin-bottom: 10px; }
+    .feature-card p { color: #666; font-size: 14px; line-height: 1.7; margin: 0; }
 
     /* ---- TESTIMONIALS ---- */
-    .testimonial-section { background-color: #f9f9f9; padding: 80px 60px; text-align: center; }
-    .testimonial-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 40px; color: #222; }
+    .testimonial-section { background-color: #f0f0f0; padding: 70px 60px; text-align: center; }
+    .testimonial-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #222; margin-bottom: 40px; }
     .testimonials { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
     .testimonial {
-      background-color: white;
+      background-color: #fff;
       border-left: 4px solid #00897b;
-      padding: 30px;
+      padding: 28px;
       flex: 1;
       min-width: 220px;
-      max-width: 320px;
+      max-width: 310px;
       text-align: left;
     }
-    .testimonial p { font-style: italic; color: #555; font-size: 15px; line-height: 1.8; margin-bottom: 15px; }
-    .testimonial-name { font-weight: 700; color: #00897b; font-size: 14px; }
+    .stars { color: #00897b; font-size: 16px; margin-bottom: 12px; }
+    .testimonial p { font-style: italic; color: #555; font-size: 14px; line-height: 1.8; margin-bottom: 15px; }
+    .testimonial-name { font-weight: 700; color: #00897b; font-size: 13px; }
 
-    /* ---- CTA ---- */
+    /* ---- CTA SECTION ---- */
     .cta-section {
       background: linear-gradient(135deg, #004d40, #00897b);
       text-align: center;
       padding: 80px 40px;
-      color: white;
+      color: #fff;
     }
     .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; }
     .cta-section p { font-size: 18px; color: #b2dfdb; margin-bottom: 35px; font-weight: 300; }
+    .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
     /* ---- FOOTER ---- */
     footer {
       background-color: #002b25;
       color: #80cbc4;
       text-align: center;
-      padding: 35px;
+      padding: 40px;
       font-size: 14px;
-      line-height: 2.2;
+      line-height: 2.4;
     }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: white; display: block; margin-bottom: 5px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
+    .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 10px; }
+    .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
+    .footer-links a:hover { color: #fff; }

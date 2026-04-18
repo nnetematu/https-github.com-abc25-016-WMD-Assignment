@@ -6,9 +6,12 @@
     <title>Matux Kitchen</title>
 </head>
 <body>
-    <link rel="stylesheet" href="style.css" />
+  <div class="top-banner">
+    <span>FREE DELIVERY</span> on all orders over P100 &nbsp;|
+  </div>
+
   <nav>
-    <div class="logo">Matux Kitchen| your No.1  Online Food Delivery Service</div>
+    <div class="logo">Matux Kitchen</div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -18,124 +21,197 @@
   </nav>
 
   <section class="hero">
-    <h1>Bold Flavours, Warm Memories</h1>
-    <div class="hero-buttons">
-      <a href="menu.html" class="btn-primary">Explore Our Menu</a>
-      <a href="feedback.html" class="btn-outline">Place an order</a>
+    <div class="hero-text">
+      <div class="hero-tag"> Fast Delivery in Gaborone</div>
+      <h1> Bold Flavours, Warm Memories.Delivered to Your Door</h1>
+      <p>Authentic meals prepared fresh and delivered hot to your home or office. Order online in minutes.</p>
+      <div class="hero-buttons">
+        <a href="menu.html" class="btn-primary">Order Now</a>
+      </div>
+    </div>
+
+    <div class="hero-order-box">
+      <h3>Enter Your Location</h3>
+      <input type="text" placeholder="Your street address" />
+      <select>
+        <option value="">-- Select your area --</option>
+        <option>Gaborone CBD</option>
+        <option>Broadhurst</option>
+        <option>Tlokweng</option>
+        <option>Mogoditshane</option>
+        <option>Phakalane</option>
+        <option>Extension 15</option>
+      </select>
+      <select>
+        <option value="">-- Delivery time --</option>
+        <option>As soon as possible</option>
+        <option>In 30 minutes</option>
+        <option>In 1 hour</option>
+        <option>Schedule for later</option>
+      </select>
+      <button class="order-btn" onclick="window.location.href='menu.html'">Find Food To Order</button>
+      <p class="order-note"> Average delivery time: 30&ndash;45 minutes</p>
     </div>
   </section>
-  
+
+  <section class="steps-section">
+    <h2>How It Works</h2>
+    <p class="sub">Order your favourite meal in just 3 easy steps</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Browse the Menu</h3>
+        <p>Explore our full menu of freshly prepared dishes.</p>
+        <span class="step-arrow">&#8594;</span>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Place Your Order</h3>
+        <p>Select your meals, enter your delivery address and pay securely online.</p>
+        <span class="step-arrow">&#8594;</span>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>We Deliver to You</h3>
+        <p>Our rider brings your hot, fresh food straight to your door.</p>
+        <span class="step-arrow">&#8594;</span>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Enjoy &amp; Rate</h3>
+        <p>Sit back, enjoy your meal and leave us a review when you are done.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
   <div class="stats-bar">
     <div class="stat-item">
-      <span class="stat-number">4</span>
-      <span class="stat-label">Years Serving</span>
+      <span class="stat-number">1000+</span>
+      <span class="stat-label">Orders Delivered</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">3000+</span>
-      <span class="stat-label">Happy Customers</span>
+      <span class="stat-number">30 min</span>
+      <span class="stat-label">Avg. Delivery Time</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">100%</span>
-      <span class="stat-label">Fresh Ingredients</span>
+      <span class="stat-number">20+</span>
+      <span class="stat-label">Menu Items</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">4.9 &#9733;</span>
+      <span class="stat-label">Customer Rating</span>
     </div>
   </div>
 
+  <!-- FEATURED DISHES -->
   <section class="section grey-bg">
-    <div class="section-header">
-      <span class="section-tag">Why Us</span>
-      <h2>Fast Delivery</h2>
-      <p>You can count on us to deliver right on time, no delays. Straight to your doorstep.</p>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <span class="card-icon">&#127869;</span>
-        <h3>Authentic Taste</h3>
-        <p>Recipes passed down through generations, cooked with modern technique.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">&#10084;</span>
-        <h3>More Than Just A Meal</h3>
-        <p>We put our heart into everything we do.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">&#128176;</span>
-        <h3>Great Value</h3>
-        <p>Premium quality meals that do not break the bank. Everyone is welcome. </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
     <div class="section-header">
       <span class="section-tag">Our Specials</span>
       <h2>Dishes You Will Love</h2>
       <p>A small taste of what awaits you</p>
     </div>
     <div class="dishes">
+
       <div class="dish-card">
         <div class="dish-img-placeholder">&#127859;</div>
-        <div class="dish-info">
-          <h3>Chicken Alfredo Pasta</h3>
-          <p>Tender, juicy chicken layered over perfectly cooked pasta all smothered in a rich, cheesy alfredo sauce made from fresh cream, garlic and parmesan.</p>
-          <span class="dish-price">P85</span>
+        <span class="dish-badge">Bestseller</span>
+        <div class="dish-information">
+          <h3>Famous Matux Fried Sushi</h3>
+          <p>Crispy, golden fried rolled sushi-styled with savory fillings and drizzled with our rich, flavourful signature sauces.</p>
+          <div class="dish-footer">
+            <span class="dish-price">P70</span>
+            <button class="add-btn" onclick="window.location.href='menu.html'">+ Add</button>
+          </div>
         </div>
       </div>
+
       <div class="dish-card">
         <div class="dish-img-placeholder">&#128031;</div>
-        <div class="dish-info">
-          <h3>Famous Matux fried sushi</h3>
-          <p>Crispy,golden fried rolled sushi-style with savory fillings and drizzled with rich, flavorful sauces. .</p>
-          <span class="dish-price">P85</span>
+        <span class="dish-badge">Popular</span>
+        <div class="dish-information">
+          <h3>Chicken Alfredo Pasta</h3>
+          <p>Tender, juicy chicken layered over perfectly cooked pasta, all smothered in a cheesy alfredo sauce made from fresh cream, garlic and parmesan.</p>
+          <div class="dish-footer">
+            <span class="dish-price">P85</span>
+          </div>
         </div>
       </div>
+
       <div class="dish-card">
         <div class="dish-img-placeholder">&#127858;</div>
-        <div class="dish-info">
-          <h3>Classic burger and Fries</h3>
-          <p>Perfectly crafted seasoned beef patty stacked with cheese, lettuce, tomato and our signature sauce, all tucked into a soft, toasted bun. Served with a side of crispy crinkle cut fries.</p>
-          <span class="dish-price">P60</span>
+        <span class="dish-badge">Popular</span>
+        <div class="dish-information">
+         <h3>Classic Burger and Fries</h3>
+          <p>Perfectly crafted, seasoned beef patty stacked with cheese, lettuce, tomato and our signature sauce, all tucked into a soft, toasted bun. Served with a side of crispy crinkle cut fries.</p>
+          <div class="dish-footer">
+            <span class="dish-price">P50</span>
+            <button class="add-btn" onclick="window.location.href='menu.html'">+ Add</button>
+          </div>
         </div>
       </div>
+
       <div class="dish-card">
-        <div class="dish-img-placeholder">&#127811;</div>
-        <div class="dish-info">
+        <div class="dish-img-placeholder">&#127822;</div>
+        <span class="dish-badge">New</span>
+        <div class="dish-information">
           <h3>Sorghum Cake</h3>
           <p>A traditional dessert made from sorghum flour topped with cinnamon sauce.</p>
-          <span class="dish-price">P30</span>
+          <div class="dish-footer">
+            <span class="dish-price">P65</span>
+            <button class="add-btn" onclick="window.location.href='menu.html'">+ Add</button>
+          </div>
         </div>
       </div>
+
+    </div>
+    <div class="menu-btn-wrap">
+      <a href="menu.html" class="btn-teal">See Full Menu</a>
+    </div>
   </section>
 
-  <section class="hours-section">
-    <h2>Come Visit Us</h2>
-    <p class="subtitle">We are open most of the week &mdash;Call us, we deliver to you.</p>
-    <div class="hours-grid">
-      <div class="hour-card">
-        <div class="hour-day">Monday &ndash; Friday</div>
-        <div class="hour-time">08:00 &ndash; 23:00</div>
+  <section class="features-section">
+    <div class="section-header">
+      <span class="section-tag">Why Order With Us</span>
+      <h2>We Make It Easy</h2>
+      <p>Everything you need for a great meal at home.</p>
+    </div>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon">&#9889;</span>
+        <h3>Fast Delivery</h3>
+        <p>We deliver your order within 30 to 45 minutes anywhere in Gaborone.</p>
       </div>
-      <div class="hour-card">
-        <div class="hour-day">Saturday</div>
-        <div class="hour-time">09:00 &ndash; 21:00</div>
+      <div class="feature-card">
+        <span class="feature-icon">&#127859;</span>
+        <h3>Always Fresh</h3>
+        <p>Every meal is cooked fresh when you order — never reheated or pre-packaged.</p>
       </div>
-      <div class="hour-card">
-        <div class="hour-day">Sunday</div>
-        <div class="hour-time">10:00 &ndash; 18:00</div>
+      <div class="feature-card">
+        <span class="feature-icon">&#128241;</span>
+        <h3>Easy Ordering</h3>
+        <p>Order from our website in minutes. No app download needed.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">&#128274;</span>
+        <h3>Safe Payment</h3>
+        <p>Pay securely online via card or mobile money. Cash on delivery also available.</p>
       </div>
     </div>
-    <p class="hours-address">&#128205; 123 Broadhurst, Gaborone &nbsp;|&nbsp; &#128222; +267 72359988</p>
   </section>
-
+  
   <section class="cta-section">
-    <h2>Ready to Order with us?</h2>
-    <p>Make that call. We are always happy to hear from you.</p>
-    <a href="feedback.html" class="btn-primary">Get in Touch</a>
+    <h2>Hungry? Let Us Come to You.</h2>
+    <p>Fresh, hot food from Matux Kitchen delivered straight to your door.</p>
+    <div class="cta-buttons">
+    </div>
   </section>
 
   <footer>
     <span class="footer-logo">Matux Kitchen</span>
-    <p>123 Broadhurst, Gaborone, Botswana | Tel: +267 123 4567 | info@MatuxKitchen.co.bw</p>
+    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
     <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
   </footer>
-  </body>
+
+</body>
 </html>
