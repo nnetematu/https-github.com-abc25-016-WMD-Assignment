@@ -1,4 +1,4 @@
- body {
+  body {
       font-family: 'Lato', sans-serif;
       margin: 0;
       padding: 0;
@@ -279,23 +279,6 @@
     .feature-icon { font-size: 40px; margin-bottom: 15px; display: block; }
     .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #00695c; margin-bottom: 10px; }
     .feature-card p { color: #666; font-size: 14px; line-height: 1.7; margin: 0; }
-
-    /* ---- TESTIMONIALS ---- */
-    .testimonial-section { background-color: #f0f0f0; padding: 70px 60px; text-align: center; }
-    .testimonial-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #222; margin-bottom: 40px; }
-    .testimonials { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
-    .testimonial {
-      background-color: #fff;
-      border-left: 4px solid #00897b;
-      padding: 28px;
-      flex: 1;
-      min-width: 220px;
-      max-width: 310px;
-      text-align: left;
-    }
-    .stars { color: #00897b; font-size: 16px; margin-bottom: 12px; }
-    .testimonial p { font-style: italic; color: #555; font-size: 14px; line-height: 1.8; margin-bottom: 15px; }
-    .testimonial-name { font-weight: 700; color: #00897b; font-size: 13px; }
 
     /* ---- CTA SECTION ---- */
     .cta-section {
