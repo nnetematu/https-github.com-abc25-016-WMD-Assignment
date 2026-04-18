@@ -1,1 +1,233 @@
 
+body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* ---- NAVIGATION ---- */
+    nav {
+      background-color: #00897b;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+    nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+    nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
+    nav ul li a:hover { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: linear-gradient(135deg, #004d40 0%, #00695c 50%, #00897b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; top: -60px; left: -60px;
+      width: 300px; height: 300px;
+      background-color: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: "";
+      position: absolute; bottom: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background-color: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero-tag {
+      display: inline-block;
+      background-color: rgba(255,255,255,0.15);
+      color: #b2dfdb;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 30px;
+      margin-bottom: 25px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 62px;
+      line-height: 1.15;
+      margin: 0 auto 20px;
+      max-width: 750px;
+    }
+    .hero p {
+      font-size: 20px;
+      color: #b2dfdb;
+      margin: 0 auto 40px;
+      max-width: 500px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .btn-primary {
+      background-color: #fff;
+      color: #00695c;
+      padding: 15px 35px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background-color: #e0f2f1; transform: translateY(-2px); }
+    .btn-outline {
+      background-color: transparent;
+      color: #fff;
+      padding: 15px 35px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      border: 2px solid rgba(255,255,255,0.5);
+      display: inline-block;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: #fff; transform: translateY(-2px); }
+
+    /* ---- STATS BAR ---- */
+    .stats-bar {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 30px 50px;
+      border-right: 1px solid #e0e0e0;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; color: #00897b; display: block; }
+    .stat-label { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; display: block; }
+
+    /* ---- SECTIONS ---- */
+    .section { padding: 80px 60px; }
+    .grey-bg { background-color: #f0f0f0; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-tag { display: inline-block; color: #00897b; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+    .section-header h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #222; margin: 0 auto; max-width: 500px; line-height: 1.3; }
+    .section-header p { color: #777; font-size: 16px; margin-top: 12px; font-weight: 300; }
+
+    /* ---- FEATURE CARDS ---- */
+    .cards { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+    .card {
+      background-color: #fff;
+      border-bottom: 4px solid #00897b;
+      padding: 35px 30px;
+      flex: 1;
+      min-width: 200px;
+      max-width: 280px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,137,123,0.15); }
+    .card-icon { font-size: 38px; margin-bottom: 18px; display: block; }
+    .card h3 { font-family: 'Playfair Display', serif; color: #00695c; font-size: 22px; margin-bottom: 12px; }
+    .card p { color: #666; font-size: 15px; line-height: 1.7; margin: 0; }
+
+    /* ---- DISH CARDS ---- */
+    .dishes { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+    .dish-card {
+      background-color: #fff;
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      border: 1px solid #e8e8e8;
+      transition: transform 0.3s;
+      overflow: hidden;
+    }
+    .dish-card:hover { transform: translateY(-5px); }
+    .dish-img-placeholder {
+      width: 100%;
+      height: 160px;
+      background-color: #b2dfdb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+    }
+    .dish-info { padding: 20px; }
+    .dish-info h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #222; margin: 0 0 6px; }
+    .dish-info p { color: #888; font-size: 14px; line-height: 1.6; margin: 0 0 12px; }
+    .dish-price { font-size: 20px; font-weight: 700; color: #00897b; }
+    .menu-btn-wrap { text-align: center; margin-top: 40px; }
+    .btn-teal { background-color: #00897b; color: #fff; padding: 15px 40px; font-size: 16px; font-weight: 700; text-decoration: none; border-radius: 4px; display: inline-block; transition: background-color 0.3s, transform 0.2s; }
+    .btn-teal:hover { background-color: #00695c; transform: translateY(-2px); }
+
+    /* ---- HOURS ---- */
+    .hours-section {
+      background: linear-gradient(135deg, #004d40, #00695c);
+      color: #fff;
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .hours-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin: 0 0 10px; }
+    .hours-section .subtitle { color: #b2dfdb; font-weight: 300; margin-bottom: 40px; font-size: 16px; }
+    .hours-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .hour-card {
+      background-color: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 25px 35px;
+      min-width: 200px;
+    }
+    .hour-day { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #80cbc4; margin-bottom: 8px; }
+    .hour-time { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; }
+    .hours-address { margin-top: 30px; color: #80cbc4; font-size: 14px; }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonial-section { background-color: #f9f9f9; padding: 80px 60px; text-align: center; }
+    .testimonial-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 40px; color: #222; }
+    .testimonials { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+    .testimonial {
+      background-color: #fff;
+      border-left: 4px solid #00897b;
+      padding: 30px;
+      flex: 1;
+      min-width: 220px;
+      max-width: 320px;
+      text-align: left;
+    }
+    .testimonial p { font-style: italic; color: #555; font-size: 15px; line-height: 1.8; margin-bottom: 15px; }
+    .testimonial-name { font-weight: 700; color: #00897b; font-size: 14px; }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: linear-gradient(135deg, #004d40, #00897b);
+      text-align: center;
+      padding: 80px 40px;
+      color: #fff;
+    }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; }
+    .cta-section p { font-size: 18px; color: #b2dfdb; margin-bottom: 35px; font-weight: 300; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background-color: #002b25;
+      color: #80cbc4;
+      text-align: center;
+      padding: 35px;
+      font-size: 14px;
+      line-height: 2.2;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; display: block; margin-bottom: 5px; }
