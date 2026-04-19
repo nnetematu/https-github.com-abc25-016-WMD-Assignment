@@ -3,9 +3,974 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Matux Kitchen- Menu</title>
 </head>
 <body>
-    
+     <link rel="stylesheet" href="style.css" />
+  <style>
+
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      background-color: #00897b;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { color: #fff; font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 1px; }
+    nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+    nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
+    nav ul li a:hover { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
+
+    /* ---- PAGE HEADER ---- */
+    .page-header {
+      background: linear-gradient(135deg, #004d40 0%, #00695c 60%, #00897b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 75px 20px 65px;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin: 0 0 12px;
+    }
+    .page-header p {
+      font-size: 17px;
+      color: #b2dfdb;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    /* ---- BREADCRUMB ---- */
+    .breadcrumb {
+      background-color: #fff;
+      padding: 12px 60px;
+      font-size: 13px;
+      color: #888;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .breadcrumb a { color: #00897b; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ---- DELIVERY NOTICE ---- */
+    .delivery-notice {
+      background-color: #e0f2f1;
+      border-left: 4px solid #00897b;
+      padding: 14px 60px;
+      font-size: 14px;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .delivery-notice span { font-weight: 700; color: #00695c; }
+
+    /* ---- MENU LAYOUT ---- */
+    .menu-wrapper {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+
+    /* ---- SIDEBAR FILTER ---- */
+    .menu-sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      background-color: #fff;
+      border-right: 1px solid #e0e0e0;
+      padding: 30px 20px;
+      position: sticky;
+      top: 65px;
+      height: fit-content;
+    }
+    .menu-sidebar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: #222;
+      margin: 0 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #b2dfdb;
+    }
+    .filter-list { list-style: none; padding: 0; margin: 0; }
+    .filter-list li { margin-bottom: 4px; }
+    .filter-list li a {
+      display: block;
+      padding: 9px 12px;
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .filter-list li a:hover,
+    .filter-list li a.active {
+      background-color: #e0f2f1;
+      color: #00695c;
+      border-left-color: #00897b;
+      font-weight: 700;
+    }
+    .sidebar-note {
+      margin-top: 25px;
+      background-color: #f0f0f0;
+      padding: 14px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+    }
+    .sidebar-note strong { color: #00695c; }
+
+    /* ---- MAIN MENU CONTENT ---- */
+    .menu-main {
+      flex: 1;
+      padding: 40px 50px;
+    }
+
+    /* ---- CATEGORY SECTION ---- */
+    .menu-category { margin-bottom: 55px; }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    .category-icon { font-size: 28px; }
+    .category-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #222;
+      margin: 0;
+    }
+    .category-count {
+      font-size: 12px;
+      color: #888;
+      margin-left: auto;
+      background-color: #e0f2f1;
+      padding: 4px 12px;
+      color: #00695c;
+      font-weight: 700;
+    }
+
+    /* ---- DISH ITEMS ---- */
+    .dish-list { display: flex; flex-direction: column; gap: 16px; }
+    .dish-item {
+      background-color: #fff;
+      border: 1px solid #e8e8e8;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      transition: box-shadow 0.3s;
+      overflow: hidden;
+    }
+    .dish-item:hover { box-shadow: 0 4px 18px rgba(0,137,123,0.12); }
+    .dish-img {
+      width: 110px;
+      height: 100px;
+      background-color: #b2dfdb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      flex-shrink: 0;
+    }
+    .dish-details {
+      flex: 1;
+      padding: 15px 20px;
+    }
+    .dish-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .dish-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: #222;
+      margin: 0;
+    }
+    .dish-badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-best { background-color: #00897b; color: #fff; }
+    .badge-new { background-color: #004d40; color: #fff; }
+    .badge-veg { background-color: #e0f2f1; color: #00695c; }
+    .badge-spicy { background-color: #fff3e0; color: #e65100; }
+    .dish-desc {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+      margin: 0 0 10px;
+    }
+    .dish-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dish-price-tag {
+      font-size: 20px;
+      font-weight: 700;
+      color: #00897b;
+    }
+    .dish-prep {
+      font-size: 12px;
+      color: #aaa;
+      margin-left: 10px;
+    }
+    .order-btn {
+      background-color: #00897b;
+      color: #fff;
+      border: none;
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .order-btn:hover { background-color: #00695c; }
+
+    /* ---- ALLERGEN NOTE ---- */
+    .allergen-note {
+      background-color: #fff8e1;
+      border-left: 4px solid #ffc107;
+      padding: 18px 25px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+    }
+    .allergen-note strong { color: #e65100; }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: linear-gradient(135deg, #004d40, #00897b);
+      text-align: center;
+      padding: 70px 40px;
+      color: #fff;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .cta-section p { font-size: 17px; color: #b2dfdb; margin-bottom: 30px; font-weight: 300; }
+    .btn-primary {
+      background-color: #fff;
+      color: #00695c;
+      padding: 14px 35px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background-color: #e0f2f1; transform: translateY(-2px); }
+
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
+    .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 5px; }
+    .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
+    .footer-links a:hover { color: #fff; }
+
+  </style>
+</head>
+<body>
+    <nav>
+    <div class="logo">Matux Kitchen</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="feedback.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-header">
+    <h1>Our Menu</h1>
+  </section>
+
+  <div class="delivery-notice">
+    <span>Free delivery on orders over P100 </span>
+     Call us: <span>+267 123 4567</span>
+  </div>
+
+  <div class="menu-wrapper">
+
+    <aside class="menu-sidebar">
+      <h3>Categories</h3>
+      <ul class="filter-list">
+        <li><a href="#pasta" class="active">Pasta And Comfort Bowls</a></li>
+        <li><a href="#mains">Main Courses</a></li>
+        <li><a href="#starters">Starters</a></li>
+        <li><a href="#sides">Sides</a></li>
+        <li><a href="#salads">Salads</a></li>
+        <li><a href="#desserts">Desserts</a></li>
+        <li><a href="#drinks">Drinks</a></li>
+        <li><a href="#combos">Combo Deals</a></li>
+      </ul>
+      <div class="sidebar-note">
+        <strong>Ordering hours:</strong><br />
+        Mon &ndash; Fri: 08:00 &ndash; 22:00<br />
+        Saturday: 09:00 &ndash; 21:00<br />
+        Sunday: 10:00 &ndash; 17:00
+      </div>
+    </aside>
+
+    <main class="menu-main">
+      <section class="menu-category" id="starters">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Starters</h2>
+          <span class="category-count">5 items</span>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Matux Fried Sushi</h3>
+                <div class="dish-badges"><span class="badge badge-veg">Best Seller</span></div>
+              </div>
+              <p class="dish-desc">Crispy, golden fried rolled sushi-styled with savory fillings and drizzled with our rich, flavourful signature sauces.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P70</span><span class="dish-prep">10 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">California Roll Sushi</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P65</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Salmon Roll Sushi</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P25</span><span class="dish-prep">8 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Sticky BBQ Wings</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P45</span><span class="dish-prep">12 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+           <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Samosas</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P25</span><span class="dish-prep">8 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu-category" id="mains">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Main Courses</h2>
+          <span class="category-count">9 items</span>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Slow Beef Stew</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P60</span><span class="dish-prep">20 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Burger and Fries</h3>
+                <div class="dish-badges"><span class="badge badge-best">Popular</span></div>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P55</span><span class="dish-prep"> 25 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Wings and Fries</h3>
+                <div class="dish-badges"></div>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P60</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Steak and Fries</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P65</span><span class="dish-prep">18 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Cheese Deluxe Burger</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">40</span><span class="dish-prep">25 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Chicken Burger</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P40</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Beef Burger</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P40</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">BBQ Chicken Pizza</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P80</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+        <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Pepperoni Pizza</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P80</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Tacos</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P80</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>           
+        </div>
+      </section>
+
+      <section class="menu-category" id="sides">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Sides</h2>
+          <span class="category-count">4 items</span>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Fries</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P20</span><span class="dish-prep">10 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Loaded Fries</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P25</span><span class="dish-prep">10 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Wrap</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P25</span><span class="dish-prep">10 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Garlic Bread</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P22</span><span class="dish-prep">5 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu-category" id="pasta">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Pasta and Comfort Bowls</h2>
+          <span class="category-count">3 items</span>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Chicken Alfredo Pasta</h3>
+                <div class="dish-badges"><span class="badge badge-best">Popular</span></div>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P80</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Creamy Mushroom Pasta</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P80</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Beef Bolognese</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P80</span><span class="dish-prep">13 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu-category" id="salads">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Salads</h2>
+          <span class="category-count">2 items</span>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Chicken Caesar Salad</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P45</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Green Salad</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P40</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu-category" id="desserts">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Desserts</h2>
+          <span class="category-count">5 items</span>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Sorghum Cake</h3>
+                <div class="dish-badges"><span class="badge badge-best">New</span></div>
+              </div>
+              <p class="dish-desc">Made from sorghum flour, which gives it a slightly nutty flavour that you do not get from regular wheat cake. We drizzle it with warm honey and serve it as a generous slice.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P30</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Chocolate Cake</h3>
+                <div class="dish-badges"><span class="badge badge-veg">Popular</span></div>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P40</span><span class="dish-prep">15 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Vanilla Cheesecake</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P40</span><span class="dish-prep">13 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Tiramisu</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P35</span><span class="dish-prep">13 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+
+            div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Milk Tart</h3>
+              </div>
+              <p class="dish-desc"></p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P20</span><span class="dish-prep">13 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+
+        </div>
+      </section>
+
+
+      <section class="menu-category" id="drinks">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Drinks</h2>
+          <span class="category-count">5 items</span>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Fresh Fruit Juice</h3>
+              </div>
+              <p class="dish-desc">Freshly squeezed orange or mango juice — whichever is in season. Not from concentrate. If you want guava or mixed fruit, we usually have that too, just ask when ordering.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P20</span><span class="dish-prep">5 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Maheu</h3>
+              </div>
+              <p class="dish-desc">A traditional fermented maize drink that is mildly sour and filling. We make it in-house in small batches. Some people love it, some are trying it for the first time — either way, it is worth ordering once.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P15</span><span class="dish-prep">2 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Rooibos Tea</h3>
+              </div>
+              <p class="dish-desc">Hot rooibos tea served in a sealed cup so it stays warm during delivery. You can ask for milk and sugar on the side — we include them in the bag by default.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P12</span><span class="dish-prep">3 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Soft Drinks (330ml)</h3>
+              </div>
+              <p class="dish-desc">Coca-Cola, Fanta Orange or Sprite. Delivered cold. If you want a specific one, mention it in the order notes and we will do our best.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P12</span><span class="dish-prep">1 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Still Water (500ml)</h3>
+              </div>
+              <p class="dish-desc">A sealed 500ml bottle of still water. Good to add to any order, especially when you are getting something spicy.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P8</span><span class="dish-prep">1 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- COMBOS -->
+      <section class="menu-category" id="combos">
+        <div class="category-header">
+          <span class="category-icon"></span>
+          <h2>Combo Deals</h2>
+        </div>
+        <div class="dish-list">
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Lunch Deal</h3>
+                <div class="dish-badges"><span class="badge badge-best">Best Value</span></div>
+              </div>
+              <p class="dish-desc">Any main course + one side + one soft drink. Works out cheaper than ordering them separately. Good option for a solo lunch order during the week.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P110</span><span class="dish-prep">Save up to P17</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Family Meal Deal</h3>
+                <div class="dish-badges"><span class="badge badge-best">Most Ordered</span></div>
+              </div>
+              <p class="dish-desc">Two main courses + two sides + two soft drinks or juices. Feeds two adults comfortably. A lot of families order two of these for a weekend dinner.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P200</span><span class="dish-prep"> Save up to P30</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
+                <h3 class="dish-name">Office Order (5 People)</h3>
+                <div class="dish-badges"><span class="badge badge-new">New</span></div>
+              </div>
+              <p class="dish-desc">Five mains + five sides + five drinks, all delivered together to one address. Each person can choose a different main. Contact us directly to place this order and customise it.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P480</span><span class="dish-prep">Save up to P70</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ALLERGEN NOTE -->
+        <div class="allergen-note">
+          <strong>Allergen information:</strong> Some of our dishes contain gluten, dairy, nuts or shellfish. If you have a specific allergy or dietary requirement, please mention it in the order notes when you place your order and we will do our best to accommodate you.
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Not Sure What to Order?</h2>
+    <p>Call us on +267 72359988 and we will help you put together a good meal based on what you are in the mood for.</p>
+    <a href="feedback.html" class="btn-primary">Contact Us</a>
+  </section>
+
+  
+    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 123 4567 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
+    <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
