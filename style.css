@@ -291,6 +291,26 @@
     .cta-section p { font-size: 18px; color: #b2dfdb; margin-bottom: 35px; font-weight: 300; }
     .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
+     /* ---- HOURS ---- */
+    .hours-section {
+      background: linear-gradient(135deg, #004d40, #00695c);
+      color: #fff;
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .hours-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin: 0 0 10px; }
+    .hours-section .subtitle { color: #b2dfdb; font-weight: 300; margin-bottom: 40px; font-size: 16px; }
+    .hours-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .hour-card {
+      background-color: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 25px 35px;
+      min-width: 200px;
+    }
+    .hour-day { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #80cbc4; margin-bottom: 8px; }
+    .hour-time { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; }
+    .hours-address { margin-top: 30px; color: #80cbc4; font-size: 14px; }
+
     /* ---- FOOTER ---- */
     footer {
       background-color: #002b25;
