@@ -146,30 +146,7 @@
       background-color: #fff;
     }
 
-    .tab-nav {
-      display: flex;
-      gap: 0;
-      border-bottom: 2px solid #e0e0e0;
-      margin-bottom: 35px;
-    }
-    .tab-btn {
-      padding: 12px 28px;
-      font-size: 15px;
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #888;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .tab-btn:hover { color: #00695c; }
-    .tab-btn.active { color: #00695c; border-bottom-color: #00897b; }
 
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
 
     /* ---- FORM STYLES ---- */
     .form-intro {
@@ -210,6 +187,7 @@
     input[type="email"],
     input[type="tel"],
     input[type="date"],
+    input[type="time"],
     input[type="number"],
     select,
     textarea {
@@ -233,7 +211,6 @@
     textarea::placeholder { color: #bbb; font-size: 14px; }
 
     .char-note { font-size: 12px; color: #aaa; text-align: right; margin-top: 4px; }
-
 
     /* ---- CHECKBOX & RADIO ---- */
     .check-group {
@@ -361,8 +338,10 @@
   </style>
 </head>
 <body>
+
+  <!-- NAVIGATION -->
   <nav>
-    <div class="logo">Matux Kitchen</div>
+    <div class="logo">Savana Kitchen</div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -379,31 +358,33 @@
   </section>
 
   <div class="page-body">
+
+    <!-- LEFT SIDEBAR: CONTACT INFO -->
     <aside class="contact-sidebar">
       <h2>Get in Touch</h2>
       <p class="intro">
-        You can reach us by phone, email, or just fill in the form. 
+        You can reach us by phone, email, or just fill in the form. We try to respond to all messages within a few hours during ordering hours.
       </p>
 
       <div class="contact-block">
         <div class="contact-block-label">Phone</div>
         <div class="contact-block-value">
-          <a href="tel:+2671234567">+267 72359988</a><br />
-          <span>Available during ordering hours</span>
+          <a href="tel:+2671234567">+267 123 4567</a><br />
+          <span style="font-size:13px; color:#80cbc4;">Available during ordering hours</span>
         </div>
       </div>
 
       <div class="contact-block">
         <div class="contact-block-label">Email</div>
         <div class="contact-block-value">
-          <a href="mailto:MatuxKitchen.co.bw">info@MatuxKitchen.co.bw</a><br />
+          <a href="mailto:info@MatuxKitchen.co.bw">info@MatuxKitchen.co.bw</a><br />
         </div>
       </div>
 
       <div class="contact-block">
         <div class="contact-block-label">Location</div>
         <div class="contact-block-value">
-          Based in Gaborone CBD, Botswana.<br />
+          Based in Gaborone, Botswana.<br />
           We deliver &mdash; no walk-ins.
         </div>
       </div>
@@ -438,13 +419,13 @@
       </div>
     </aside>
 
+    <!-- RIGHT: FORMS -->
     <div class="forms-area">
 
-      <!-- TABS -->
-      <div class="tab-nav">
-        <button class="tab-btn" onclick="('feedback')"> Leave Feedback</button>
-      </div>
-       <div class="tab-panel" id="tab-feedback">
+      <!-- FEEDBACK FORM -->
+      <div id="tab-feedback">
+
+        <h2 style="font-family:'Playfair Display',serif; font-size:26px; color:#222; margin:0 0 14px;">Leave Us Feedback</h2>
 
         <p class="form-intro">
           We genuinely read every piece of feedback we get. If something was not right with your order, we want to know so we can fix it. If everything was great, that is good to hear too.
@@ -548,7 +529,7 @@
             </label>
           </div>
 
-          <button type="submit" class="submit-btn">&Submit Feedback</button>
+          <button type="submit" class="submit-btn"> Submit Feedback</button>
 
         </form>
 
@@ -558,6 +539,10 @@
 
       </div>
 
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
   <section class="faq-section">
     <h2>Frequently Asked Questions</h2>
     <p class="faq-intro">Here are things people ask us fairly often. If your question is not here, just call or use the form above.</p>
@@ -597,9 +582,21 @@
   </section>
 
   <footer>
-    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
-    <p>&copy; 2026 Matuc Kitchen. All rights reserved.</p>
+    <span class="footer-logo">Matux Kitchen</span>
+    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 123 4567 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
+    <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
   </footer>
+
+  <script>
+    function showSuccess(id) {
+      var el = document.getElementById(id);
+      el.style.display = 'block';
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
 </body>
 </html>
+
+  
 
