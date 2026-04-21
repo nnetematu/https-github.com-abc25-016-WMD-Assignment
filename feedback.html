@@ -378,6 +378,7 @@
     <p>Tell us how we did &mdash; we are listening</p>
   </section>
 
+  <div class="page-body">
     <aside class="contact-sidebar">
       <h2>Get in Touch</h2>
       <p class="intro">
@@ -441,28 +442,24 @@
 
       <!-- TABS -->
       <div class="tab-nav">
-        <button class="tab-btn" onclick="switchTab('feedback')">&#9733; Leave Feedback</button>
-        <button class="tab-btn" onclick="switchTab('enquiry')">&#128172; General Enquiry</button>
+        <button class="tab-btn" onclick="('feedback')"> Leave Feedback</button>
       </div>
-
-      <!-- ========================= -->
-      <!-- TAB 2: FEEDBACK           -->
-      <!-- ========================= -->
-      <div class="tab-panel" id="tab-feedback">
+       <div class="tab-panel" id="tab-feedback">
 
         <p class="form-intro">
           We genuinely read every piece of feedback we get. If something was not right with your order, we want to know so we can fix it. If everything was great, that is good to hear too.
         </p>
+        <p class="form-required-note">Fields marked with * are required.</p>
 
         <form action="#" method="post" onsubmit="showSuccess('feedback-success'); return false;">
 
           <div class="form-row">
             <div class="form-group">
-              <label for="fb-name">Your Name </label>
+              <label for="fb-name">Your Name *</label>
               <input type="text" id="fb-name" name="name" placeholder="First and last name" required />
             </div>
             <div class="form-group">
-              <label for="fb-email">Email Address </label>
+              <label for="fb-email">Email Address *</label>
               <input type="email" id="fb-email" name="email" placeholder="your@email.com" required />
             </div>
           </div>
@@ -473,13 +470,13 @@
               <input type="tel" id="fb-phone" name="phone" placeholder="+267 7X XXX XXX" />
             </div>
             <div class="form-group">
-              <label for="fb-date">Date of Your Order</label>
+              <label for="fb-date">Date of Your Order *</label>
               <input type="date" id="fb-date" name="order_date" required />
             </div>
           </div>
 
           <div class="form-group full">
-            <label for="fb-area">Which Area Were You Delivered To?</label>
+            <label for="fb-area">Which Area Were You Delivered To? *</label>
             <select id="fb-area" name="area" required>
               <option value="">-- Select your area --</option>
               <option value="cbd">Gaborone CBD</option>
@@ -491,9 +488,8 @@
             </select>
           </div>
 
-
           <div class="form-group full">
-            <label>What Are You Leaving Feedback About?</label>
+            <label>What Are You Leaving Feedback About? *</label>
             <div class="check-group">
               <label class="check-item">
                 <input type="checkbox" name="feedback_about" value="food_quality" />
@@ -523,12 +519,12 @@
           </div>
 
           <div class="form-group full">
-            <label for="fb-message">Tell Us More </label>
+            <label for="fb-message">Tell Us More *</label>
             <textarea id="fb-message" name="message" rows="5" placeholder="What happened? What did you enjoy or what went wrong? Be as specific as you like — it genuinely helps us." required></textarea>
           </div>
 
           <div class="form-group full">
-            <label>Would You Order From Us Again? </label>
+            <label>Would You Order From Us Again? *</label>
             <div class="check-group">
               <label class="check-item">
                 <input type="radio" name="order_again" value="yes" required />
@@ -552,7 +548,7 @@
             </label>
           </div>
 
-          <button type="submit" class="submit-btn">Submit Feedback</button>
+          <button type="submit" class="submit-btn">&Submit Feedback</button>
 
         </form>
 
@@ -561,7 +557,6 @@
         </div>
 
       </div>
-
 
   <section class="faq-section">
     <h2>Frequently Asked Questions</h2>
