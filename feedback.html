@@ -4,8 +4,609 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  <style>
+
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      background-color: #00897b;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { color: #fff; font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 1px; }
+    nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+    nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
+    nav ul li a:hover { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
+
+    /* ---- PAGE HEADER ---- */
+    .page-header {
+      background: linear-gradient(135deg, #004d40 0%, #00695c 60%, #00897b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 75px 20px 65px;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin: 0 0 12px;
+    }
+    .page-header p {
+      font-size: 17px;
+      color: #b2dfdb;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    /* ---- MAIN LAYOUT ---- */
+    .page-body {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* ---- LEFT: CONTACT INFO ---- */
+    .contact-sidebar {
+      width: 340px;
+      flex-shrink: 0;
+      background-color: #004d40;
+      color: #fff;
+      padding: 50px 35px;
+      min-height: 100%;
+    }
+    .contact-sidebar h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    .contact-sidebar .intro {
+      font-size: 15px;
+      color: #b2dfdb;
+      line-height: 1.8;
+      margin-bottom: 35px;
+      font-weight: 300;
+    }
+
+    .contact-block {
+      margin-bottom: 28px;
+    }
+    .contact-block-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #80cbc4;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+    .contact-block-value {
+      font-size: 15px;
+      color: #fff;
+      line-height: 1.7;
+    }
+    .contact-block-value a {
+      color: #b2dfdb;
+      text-decoration: none;
+    }
+    .contact-block-value a:hover { color: #fff; text-decoration: underline; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: 30px 0;
+    }
+
+    .hours-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #80cbc4;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px;
+      color: #e0f2f1;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: #b2dfdb; }
+
+    .sidebar-note-box {
+      background-color: rgba(255,255,255,0.08);
+      border-left: 3px solid #80cbc4;
+      padding: 15px 18px;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #b2dfdb;
+      line-height: 1.7;
+    }
+
+    /* ---- RIGHT: FORMS ---- */
+    .forms-area {
+      flex: 1;
+      min-width: 300px;
+      padding: 50px 55px;
+      background-color: #fff;
+    }
+
+    /* ---- TABS ---- */
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 35px;
+    }
+    .tab-btn {
+      padding: 12px 28px;
+      font-size: 15px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #888;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover { color: #00695c; }
+    .tab-btn.active { color: #00695c; border-bottom-color: #00897b; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ---- FORM STYLES ---- */
+    .form-intro {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+      flex: 1;
+      min-width: 200px;
+    }
+    .form-group.full { flex: 1 1 100%; min-width: 100%; }
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+    }
+    .label-note {
+      font-weight: 400;
+      color: #999;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    select,
+    textarea {
+      padding: 11px 14px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      background-color: #fff;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #00897b;
+    }
+    input::placeholder,
+    textarea::placeholder { color: #bbb; font-size: 14px; }
+
+    .char-note { font-size: 12px; color: #aaa; text-align: right; margin-top: 4px; }
+
+
+    /* ---- CHECKBOX & RADIO ---- */
+    .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+    }
+    .check-item input[type="checkbox"],
+    .check-item input[type="radio"] {
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: #00897b;
+      cursor: pointer;
+    }
+
+    /* ---- SUBMIT BUTTON ---- */
+    .submit-btn {
+      background-color: #00897b;
+      color: #fff;
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background-color 0.3s, transform 0.2s;
+      margin-top: 10px;
+    }
+    .submit-btn:hover { background-color: #00695c; transform: translateY(-2px); }
+
+    .form-required-note {
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    /* ---- SUCCESS MESSAGE (hidden by default) ---- */
+    .success-msg {
+      display: none;
+      background-color: #e0f2f1;
+      border-left: 4px solid #00897b;
+      padding: 18px 22px;
+      font-size: 15px;
+      color: #004d40;
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+    /* ---- SECTION DIVIDER ---- */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 35px 0;
+    }
+
+    /* ---- FAQ SECTION ---- */
+    .faq-section {
+      background-color: #f9f9f9;
+      padding: 70px 60px;
+    }
+    .faq-section .top-label {
+      display: inline-block;
+      color: #00897b;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .faq-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      color: #222;
+      margin: 0 0 8px;
+    }
+    .faq-section .faq-intro {
+      font-size: 15px;
+      color: #777;
+      margin-bottom: 35px;
+      font-weight: 300;
+    }
+    .faq-list { display: flex; flex-direction: column; gap: 0; max-width: 780px; }
+    .faq-item {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 22px 0;
+    }
+    .faq-item:first-child { border-top: 1px solid #e0e0e0; }
+    .faq-q {
+      font-size: 16px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    .faq-a {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background-color: #002b25;
+      color: #80cbc4;
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      line-height: 2.4;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
+    .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 5px; }
+    .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
+    .footer-links a:hover { color: #fff; }
+
+  </style>
 </head>
 <body>
-    
+  <nav>
+    <div class="logo">Matux Kitchen</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-header">
+    <h1>Feedback</h1>
+    <p>Tell us how we did &mdash; we are listening</p>
+  </section>
+
+    <aside class="contact-sidebar">
+      <h2>Get in Touch</h2>
+      <p class="intro">
+        You can reach us by phone, email, or just fill in the form. 
+      </p>
+
+      <div class="contact-block">
+        <div class="contact-block-label">Phone</div>
+        <div class="contact-block-value">
+          <a href="tel:+2671234567">+267 72359988</a><br />
+          <span>Available during ordering hours</span>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-block-label">Email</div>
+        <div class="contact-block-value">
+          <a href="mailto:MatuxKitchen.co.bw">info@MatuxKitchen.co.bw</a><br />
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-block-label">Location</div>
+        <div class="contact-block-value">
+          Based in Gaborone CBD, Botswana.<br />
+          We deliver &mdash; no walk-ins.
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-block-label">Delivery Areas</div>
+        <div class="contact-block-value">
+          Gaborone CBD, Broadhurst,<br />
+          Tlokweng, Mogoditshane,<br />
+          Phakalane, Extension 15
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="hours-title">Ordering Hours</div>
+      <div class="hours-row">
+        <span class="day">Monday &ndash; Friday</span>
+        <span>08:00 &ndash; 22:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Saturday</span>
+        <span>09:00 &ndash; 21:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Sunday</span>
+        <span>10:00 &ndash; 17:00</span>
+      </div>
+
+      <div class="sidebar-note-box">
+        Orders placed after cut-off time will be confirmed for the next morning. If you need something urgently, call us directly and we will see what we can do.
+      </div>
+    </aside>
+
+    <div class="forms-area">
+
+      <!-- TABS -->
+      <div class="tab-nav">
+        <button class="tab-btn" onclick="switchTab('feedback')">&#9733; Leave Feedback</button>
+        <button class="tab-btn" onclick="switchTab('enquiry')">&#128172; General Enquiry</button>
+      </div>
+
+      <!-- ========================= -->
+      <!-- TAB 2: FEEDBACK           -->
+      <!-- ========================= -->
+      <div class="tab-panel" id="tab-feedback">
+
+        <p class="form-intro">
+          We genuinely read every piece of feedback we get. If something was not right with your order, we want to know so we can fix it. If everything was great, that is good to hear too.
+        </p>
+
+        <form action="#" method="post" onsubmit="showSuccess('feedback-success'); return false;">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fb-name">Your Name </label>
+              <input type="text" id="fb-name" name="name" placeholder="First and last name" required />
+            </div>
+            <div class="form-group">
+              <label for="fb-email">Email Address </label>
+              <input type="email" id="fb-email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fb-phone">Phone Number <span class="label-note">(optional)</span></label>
+              <input type="tel" id="fb-phone" name="phone" placeholder="+267 7X XXX XXX" />
+            </div>
+            <div class="form-group">
+              <label for="fb-date">Date of Your Order</label>
+              <input type="date" id="fb-date" name="order_date" required />
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label for="fb-area">Which Area Were You Delivered To?</label>
+            <select id="fb-area" name="area" required>
+              <option value="">-- Select your area --</option>
+              <option value="cbd">Gaborone CBD</option>
+              <option value="broadhurst">Broadhurst</option>
+              <option value="tlokweng">Tlokweng</option>
+              <option value="mogoditshane">Mogoditshane</option>
+              <option value="phakalane">Phakalane</option>
+              <option value="ext15">Extension 15</option>
+            </select>
+          </div>
+
+
+          <div class="form-group full">
+            <label>What Are You Leaving Feedback About?</label>
+            <div class="check-group">
+              <label class="check-item">
+                <input type="checkbox" name="feedback_about" value="food_quality" />
+                Food quality or taste
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="feedback_about" value="delivery_speed" />
+                Delivery speed or timing
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="feedback_about" value="packaging" />
+                Packaging or presentation
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="feedback_about" value="customer_service" />
+                Customer service or communication
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="feedback_about" value="order_accuracy" />
+                Order accuracy (wrong or missing items)
+              </label>
+              <label class="check-item">
+                <input type="checkbox" name="feedback_about" value="other" />
+                Something else
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label for="fb-message">Tell Us More </label>
+            <textarea id="fb-message" name="message" rows="5" placeholder="What happened? What did you enjoy or what went wrong? Be as specific as you like — it genuinely helps us." required></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label>Would You Order From Us Again? </label>
+            <div class="check-group">
+              <label class="check-item">
+                <input type="radio" name="order_again" value="yes" required />
+                Yes, definitely
+              </label>
+              <label class="check-item">
+                <input type="radio" name="order_again" value="maybe" />
+                Maybe, depends on whether things improve
+              </label>
+              <label class="check-item">
+                <input type="radio" name="order_again" value="no" />
+                Probably not
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label class="check-item">
+              <input type="checkbox" name="newsletter" />
+              Add me to the mailing list for promotions and menu updates
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Feedback</button>
+
+        </form>
+
+        <div class="success-msg" id="feedback-success">
+          &#10003; &nbsp; <strong>Thank you for taking the time to leave feedback.</strong> We have received it and will read through it carefully. If you flagged a problem with your order, someone from our team will follow up with you within 24 hours.
+        </div>
+
+      </div>
+
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-intro">Here are things people ask us fairly often. If your question is not here, just call or use the form above.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">How long does delivery take?</div>
+        <p class="faq-a">On most days, we deliver within 30 to 45 minutes from when your order is confirmed. It can take a bit longer during busy lunch hours or on weekends. We will always let you know if there is a delay before it happens.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is there a minimum order amount?</div>
+        <p class="faq-a">There is no minimum order, but delivery is free only for orders above P100. For orders below that, there is a flat delivery fee of P20 regardless of how far you are within our zones.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I change or cancel my order after submitting it?</div>
+        <p class="faq-a">Yes, but you need to call us within 5 minutes of placing the order. Once we have started preparing your food, we cannot cancel it. Changes to quantities or items are possible up until preparation starts.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do you cater for dietary requirements or allergies?</div>
+        <p class="faq-a">We do our best. If you have a specific allergy, mention it clearly in the order notes or call us before ordering. For serious allergies, a phone call is safer than the form because we can go through the ingredients with you directly.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What payment methods do you accept?</div>
+        <p class="faq-a">We accept card payments online, mobile money through Orange and Mascom, and cash on delivery. If you are paying with mobile money, we will send you the number to pay to after confirming your order.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I order for someone else at a different address?</div>
+        <p class="faq-a">Yes. Just put the recipient's address in the delivery address field and your own phone number so we can confirm the order with you. Leave a note telling us it is a gift if you want and we will sort out the rest.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
+    <p>&copy; 2026 Matuc Kitchen. All rights reserved.</p>
+  </footer>
 </body>
 </html>
+
