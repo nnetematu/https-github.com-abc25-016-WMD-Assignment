@@ -261,36 +261,6 @@
     }
     .btn-teal:hover { background-color: #00695c; transform: translateY(-2px); }
 
-    /* ---- DELIVERY FEATURES ---- */
-    .features-section { background-color: #fff; padding: 70px 60px; }
-    .features-section .section-header { margin-bottom: 50px; }
-    .features { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
-    .feature-card {
-      flex: 1;
-      min-width: 200px;
-      max-width: 260px;
-      padding: 35px 25px;
-      text-align: center;
-      background-color: #f9f9f9;
-      border-top: 4px solid #00897b;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,137,123,0.1); }
-    .feature-icon { font-size: 40px; margin-bottom: 15px; display: block; }
-    .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #00695c; margin-bottom: 10px; }
-    .feature-card p { color: #666; font-size: 14px; line-height: 1.7; margin: 0; }
-
-    /* ---- CTA SECTION ---- */
-    .cta-section {
-      background: linear-gradient(135deg, #004d40, #00897b);
-      text-align: center;
-      padding: 80px 40px;
-      color: #fff;
-    }
-    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; }
-    .cta-section p { font-size: 18px; color: #b2dfdb; margin-bottom: 35px; font-weight: 300; }
-    .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-
      /* ---- HOURS ---- */
     .hours-section {
       background: linear-gradient(135deg, #004d40, #00695c);
@@ -324,3 +294,379 @@
     .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 10px; }
     .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
     .footer-links a:hover { color: #fff; }
+
+    /* =====================
+   TABLET - max 1024px
+   ===================== */
+@media (max-width: 1024px) {
+
+  /* Navigation */
+  nav {
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    gap: 18px;
+  }
+
+  /* Hero sections */
+  .hero {
+    padding: 70px 30px;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero-order-box {
+    flex: none;
+    width: 100%;
+  }
+
+  /* General sections */
+  .section {
+    padding: 50px 30px;
+  }
+
+  /* Stats bar */
+  .stat-item {
+    padding: 20px 30px;
+  }
+
+  /* Story section on about page */
+  .story-section {
+    flex-direction: column;
+    padding: 50px 30px;
+  }
+
+  .story-side {
+    flex: none;
+    width: 100%;
+  }
+
+  /* Menu page sidebar */
+  .menu-sidebar {
+    width: 180px;
+    padding: 20px 15px;
+  }
+
+  .menu-main {
+    padding: 30px 25px;
+  }
+
+  /* Contact sidebar on feedback page */
+  .contact-sidebar {
+    width: 260px;
+    padding: 35px 25px;
+  }
+
+}
+
+
+/* =====================
+   MOBILE - max 768px
+   ===================== */
+@media (max-width: 768px) {
+
+  /* ---- NAVIGATION ---- */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    gap: 12px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 6px 0;
+    font-size: 15px;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    flex-direction: column;
+    padding: 60px 20px 50px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-order-box {
+    flex: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ---- PAGE HEADERS ---- */
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .page-header p {
+    font-size: 15px;
+  }
+
+  /* ---- STATS BAR ---- */
+  .stats-bar {
+    flex-direction: column;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 18px 20px;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  /* ---- SECTIONS ---- */
+  .section {
+    padding: 40px 20px;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  /* ---- CARDS ---- */
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* ---- DISH CARDS ---- */
+  .dishes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dish-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* ---- FEATURE CARDS ---- */
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* ---- HOURS GRID ---- */
+  .hours-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hour-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ---- TESTIMONIALS ---- */
+  .testimonials {
+    flex-direction: column;
+  }
+
+  .testimonial {
+    max-width: 100%;
+  }
+
+  /* ---- ABOUT PAGE ---- */
+  .story-section {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .story-side {
+    flex: none;
+    width: 100%;
+  }
+
+  .mv-cards {
+    flex-direction: column;
+  }
+
+  .mv-card {
+    min-width: 100%;
+  }
+
+  .team-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* ---- MENU PAGE ---- */
+  .menu-wrapper {
+    flex-direction: column;
+  }
+
+  .menu-sidebar {
+    width: 100%;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px;
+  }
+
+  .filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-list li a {
+    border: 1px solid #b2dfdb;
+    border-left: 3px solid #00897b;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .menu-main {
+    padding: 25px 20px;
+  }
+
+  .dish-item {
+    flex-direction: column;
+  }
+
+  .dish-img {
+    width: 100%;
+    height: 160px;
+    font-size: 50px;
+  }
+
+  .dish-item img {
+    width: 100%;
+    height: 160px;
+  }
+
+  /* ---- FEEDBACK PAGE ---- */
+  .page-body {
+    flex-direction: column;
+  }
+
+  .contact-sidebar {
+    width: 100%;
+    padding: 35px 20px;
+    box-sizing: border-box;
+  }
+
+  .forms-area {
+    padding: 30px 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ---- CTA SECTION ---- */
+  .cta-section h2 {
+    font-size: 28px;
+  }
+
+  .cta-section p {
+    font-size: 15px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* ---- BREADCRUMB ---- */
+  .breadcrumb {
+    padding: 12px 20px;
+  }
+
+  .delivery-notice {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+}
+
+
+/* =====================
+   SMALL MOBILE - max 480px
+   ===================== */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+  }
+
+  .btn-primary,
+  .btn-outline,
+  .btn-teal {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .hours-section {
+    padding: 50px 20px;
+  }
+
+  .faq-section {
+    padding: 40px 20px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 8px 10px;
+  }
+
+}

@@ -1,1 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matux Kitchen-Contact Us</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
 
+body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      background-color: #00897b;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { color: #fff; font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 1px; }
+    nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+    nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
+    nav ul li a:hover { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
+
+    /* ---- PAGE HEADER ---- */
+    .page-header {
+      background: linear-gradient(135deg, #004d40 0%, #00695c 60%, #00897b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 75px 20px 65px;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin: 0 0 12px;
+    }
+    .page-header p {
+      font-size: 17px;
+      color: #b2dfdb;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    /* ---- QUICK CONTACT STRIP ---- */
+    .quick-strip {
+      background-color: #e0f2f1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      border-bottom: 1px solid #b2dfdb;
+    }
+    .quick-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 40px;
+      border-right: 1px solid #b2dfdb;
+    }
+    .quick-item:last-child { border-right: none; }
+    .quick-icon { font-size: 24px; }
+    .quick-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00897b;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .quick-value {
+      font-size: 15px;
+      color: #004d40;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .quick-value:hover { text-decoration: underline; }
+
+    /* ---- MAIN LAYOUT ---- */
+    .contact-body {
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    /* ---- LEFT: CONTACT FORM ---- */
+    .contact-form-area {
+      flex: 1;
+      min-width: 300px;
+      padding: 55px 55px;
+      background-color: #fff;
+    }
+    .section-tag {
+      display: inline-block;
+      color: #00897b;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .contact-form-area h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #222;
+      margin: 0 0 10px;
+    }
+    .form-intro {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .form-required-note {
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    /* ---- FORM ELEMENTS ---- */
+    .form-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+      flex: 1;
+      min-width: 200px;
+    }
+    .form-group.full { flex: 1 1 100%; min-width: 100%; }
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+    }
+    .label-note {
+      font-weight: 400;
+      color: #999;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      padding: 11px 14px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      background-color: #fff;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #00897b;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+    }
+    .check-item input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: #00897b;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background-color: #00897b;
+      color: #fff;
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background-color 0.3s, transform 0.2s;
+      margin-top: 10px;
+    }
+    .submit-btn:hover { background-color: #00695c; transform: translateY(-2px); }
+
+    .success-msg {
+      display: none;
+      background-color: #e0f2f1;
+      border-left: 4px solid #00897b;
+      padding: 18px 22px;
+      font-size: 15px;
+      color: #004d40;
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+    /* ---- RIGHT: CONTACT DETAILS SIDEBAR ---- */
+    .contact-details-sidebar {
+      width: 360px;
+      flex-shrink: 0;
+      background-color: #f9f9f9;
+      border-left: 1px solid #e0e0e0;
+      padding: 55px 35px;
+    }
+    .contact-details-sidebar h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #222;
+      margin: 0 0 8px;
+    }
+    .sidebar-intro {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    /* ---- INFO BLOCKS ---- */
+    .info-block {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      padding: 18px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .info-block:first-of-type { border-top: 1px solid #e8e8e8; }
+    .info-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .info-content {}
+    .info-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00897b;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .info-text {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.7;
+    }
+    .info-text a {
+      color: #00695c;
+      text-decoration: none;
+    }
+    .info-text a:hover { text-decoration: underline; }
+    .info-sub {
+      font-size: 12px;
+      color: #999;
+      margin-top: 3px;
+    }
+
+    /* ---- HOURS TABLE ---- */
+    .hours-block {
+      margin-top: 28px;
+    }
+    .hours-block-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00897b;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 9px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: #555; }
+    .hours-time { font-weight: 700; color: #222; }
+    .hours-closed { color: #e57373; font-weight: 700; }
+
+    /* ---- DELIVERY ZONES ---- */
+    .zones-block {
+      margin-top: 28px;
+      background-color: #004d40;
+      padding: 22px;
+    }
+    .zones-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #80cbc4;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .zones-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .zones-list li {
+      background-color: rgba(255,255,255,0.1);
+      color: #e0f2f1;
+      font-size: 13px;
+      padding: 5px 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .zones-note {
+      font-size: 12px;
+      color: #80cbc4;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ---- RESPONSE TIME BLOCK ---- */
+    .response-block {
+      margin-top: 25px;
+      background-color: #e0f2f1;
+      border-left: 4px solid #00897b;
+      padding: 16px 18px;
+    }
+    .response-block p {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .response-block strong { color: #00695c; }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: linear-gradient(135deg, #004d40, #00897b);
+      text-align: center;
+      padding: 70px 40px;
+      color: #fff;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .cta-section p { font-size: 17px; color: #b2dfdb; margin-bottom: 30px; font-weight: 300; }
+    .btn-primary {
+      background-color: #fff;
+      color: #00695c;
+      padding: 14px 38px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background-color: #e0f2f1; transform: translateY(-2px); }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background-color: #002b25;
+      color: #80cbc4;
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      line-height: 2.4;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
+    .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 5px; }
+    .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
+    .footer-links a:hover { color: #fff; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .contact-body { flex-direction: column; }
+      .contact-details-sidebar { width: 100%; border-left: none; border-top: 1px solid #e0e0e0; box-sizing: border-box; }
+      .contact-form-area { padding: 40px 25px; }
+      .map-section { padding: 40px 25px; }
+      .other-ways { padding: 40px 25px; }
+      .quick-item { padding: 15px 20px; }
+    }
+
+    @media (max-width: 600px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 10px; padding: 15px 20px; }
+      nav ul { flex-direction: column; gap: 6px; }
+      .page-header h1 { font-size: 32px; }
+      .breadcrumb { padding: 12px 20px; }
+      .quick-strip { flex-direction: column; }
+      .quick-item { border-right: none; border-bottom: 1px solid #b2dfdb; }
+      .quick-item:last-child { border-bottom: none; }
+      .contact-form-area { padding: 30px 20px; }
+      .contact-details-sidebar { padding: 30px 20px; }
+      .form-row { flex-direction: column; gap: 0; }
+      .ways-grid { flex-direction: column; }
+      .way-card { min-width: 100%; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Matux Kitchen</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="team.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>Contact Us</h1>
+  </section>
+
+  <!-- QUICK CONTACT STRIP -->
+  <div class="quick-strip">
+    <div class="quick-item">
+      <span class="quick-icon"></span>
+      <div>
+        <span class="quick-label">Call Us</span>
+        <a href="tel:+267 72359988" class="quick-value">+267 72359988</a>
+      </div>
+    </div>
+    <div class="quick-item">
+      <span class="quick-icon"></span>
+      <div>
+        <span class="quick-label">Email Us</span>
+        <a href="mailto:info@MatuxKitchen.co.bw" class="quick-value">info@MatuxKitchen.co.bw</a>
+      </div>
+    </div>
+    <div class="quick-item">
+      <span class="quick-icon"></span>
+      <div>
+        <span class="quick-label">Whatsapp Us</span>
+        <a href="web.whatsapp.com"></a>
+      </div>
+    </div>
+    <div class="quick-item">
+      <span class="quick-icon"></span>
+      <div>
+        <span class="quick-label">Delivery Time</span>
+        <span class="quick-value">30 &ndash; 45 minutes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN BODY -->
+  <div class="contact-body">
+
+    <!-- LEFT: CONTACT FORM -->
+    <div class="contact-form-area">
+      <span class="section-tag">Send a Message</span>
+      <h2>We Will Get Back to You</h2>
+      <p class="form-intro">
+        Use this form for any question that does not need an immediate answer — things like catering enquiries, bulk orders, complaints about a past order, or just something you could not find on the website. If you need something quickly, call us instead. The form is checked a few times a day during ordering hours.
+      </p>
+      <p class="form-required-note">Fields marked with * are required.</p>
+
+      <form action="#" method="post" onsubmit="showSuccess(); return false;">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-fname">First Name *</label>
+            <input type="text" id="contact-fname" name="first_name" placeholder="e.g. Boitumelo" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-lname">Last Name *</label>
+            <input type="text" id="contact-lname" name="last_name" placeholder="e.g. Motsepe" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-email">Email Address *</label>
+            <input type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone Number <span class="label-note">(optional)</span></label>
+            <input type="tel" id="contact-phone" name="phone" placeholder="+267 7X XXX XXX" />
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label for="contact-reason">What Is This About? *</label>
+          <select id="contact-reason" name="reason" required>
+            <option value="">-- Select a reason --</option>
+            <option value="order_issue">Problem with a past order</option>
+            <option value="bulk_order">Bulk or office order enquiry</option>
+            <option value="catering">Catering for an event</option>
+            <option value="menu_question">Question about the menu or ingredients</option>
+            <option value="payment">Payment or billing issue</option>
+            <option value="partnership">Business or partnership enquiry</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label for="contact-order-ref">Order Reference Number <span class="label-note">(if your message is about a specific order)</span></label>
+          <input type="text" id="contact-order-ref" name="order_ref" placeholder="e.g. SK-20260415-001 — leave blank if not applicable" />
+        </div>
+
+        <div class="form-group full">
+          <label for="contact-message">Your Message *</label>
+          <textarea id="contact-message" name="message" rows="6" placeholder="Tell us what you need. The more detail you give, the faster we can actually help you." required></textarea>
+        </div>
+
+        <div class="form-group full">
+          <label for="contact-pref">How Should We Get Back to You? *</label>
+          <select id="contact-pref" name="contact_pref" required>
+            <option value="">-- Select a method --</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone call</option>
+            <option value="whatsapp">WhatsApp</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label class="check-item">
+            <input type="checkbox" name="newsletter" />
+            Add me to the mailing list for new dishes and promotions
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+
+      </form>
+
+      <div class="success-msg" id="contact-success">
+       &nbsp; <strong>Your message has been sent.</strong> We will get back to you within a few minutes on weekdays. 
+      </div>
+
+    </div>
+
+    <!-- RIGHT: CONTACT DETAILS SIDEBAR -->
+    <aside class="contact-details-sidebar">
+      <h2>Contact Details</h2>
+      <p class="sidebar-intro">
+        We are a delivery-only service, so there is no physical counter to walk up to. Everything goes through phone, WhatsApp or email.
+      </p>
+
+      <div class="info-block">
+        <span class="info-icon"></span>
+        <div class="info-content">
+          <div class="info-title">Phone &amp; WhatsApp</div>
+          <div class="info-text">
+            <a href="tel:+267 72359988">+267 72359988</a>
+          </div>
+          <div class="info-sub">Available during ordering hours only.On Weekdays we do not take calls after 9pm. On Saturday we do not take calls after 8pm and on Sundays, after 4pm.</div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <span class="info-icon"></span>
+        <div class="info-content">
+          <div class="info-title">Email</div>
+          <div class="info-text">
+            <a href="mailto:info@MatuxKitchen.co.bw">info@MatuxKitchen.co.bw</a>
+          </div>
+          <div class="info-sub">Replies within an hour on weekdays. Weekends can take a bit longer.</div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <span class="info-icon"></span>
+        <div class="info-content">
+          <div class="info-title">Location</div>
+          <div class="info-text">Gaborone CBD, Botswana</div>
+          <div class="info-sub">Delivery only &mdash; we do not have a walk-in location.</div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <span class="info-icon"></span>
+        <div class="info-content">
+          <div class="info-title">Delivery Fee</div>
+          <div class="info-text">Free on orders over P100</div>
+          <div class="info-sub">P20 flat fee for orders under P100 within our delivery zones.</div>
+        </div>
+      </div>
+
+      <!-- HOURS -->
+      <div class="hours-block">
+        <div class="hours-block-title">Ordering Hours</div>
+        <div class="hours-row">
+          <span class="hours-day">Monday</span>
+          <span class="hours-time">08:00 &ndash; 22:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Tuesday</span>
+          <span class="hours-time">08:00 &ndash; 22:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Wednesday</span>
+          <span class="hours-time">08:00 &ndash; 22:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Thursday</span>
+          <span class="hours-time">08:00 &ndash; 22:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Friday</span>
+          <span class="hours-time">08:00 &ndash; 22:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Saturday</span>
+          <span class="hours-time">09:00 &ndash; 21:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Sunday</span>
+          <span class="hours-time">10:00 &ndash; 17:00</span>
+        </div>
+      </div>
+
+      <!-- DELIVERY ZONES -->
+      <div class="zones-block">
+        <div class="zones-title">Delivery Zones</div>
+        <ul class="zones-list">
+          <li>Gaborone CBD</li>
+          <li>Broadhurst</li>
+          <li>Tlokweng</li>
+          <li>Mogoditshane</li>
+          <li>Phakalane</li>
+          <li>Extension 15</li>
+        </ul>
+      </div>
+
+      <!-- RESPONSE TIME -->
+      <div class="response-block">
+        <p>
+          <strong>Average response time:</strong> phone calls are answered immediately during ordering hours. Emails and form messages are usually replied to within <strong>1 to 2 hours</strong> on weekdays.
+        </p>
+      </div>
+    </aside>
+  </div>
+
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to Place an Order?</h2>
+    <p>Head over to the menu and we will have your food at your door in under 45 minutes.</p>
+    <a href="menu.html" class="btn-primary">View Our Menu</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
+    <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showSuccess() {
+      var el = document.getElementById('contact-success');
+      el.style.display = 'block';
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
+</body>
+</html>
