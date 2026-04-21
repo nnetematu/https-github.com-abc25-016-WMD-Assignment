@@ -261,6 +261,25 @@
     }
     .btn-teal:hover { background-color: #00695c; transform: translateY(-2px); }
 
+     /* ---- DELIVERY FEATURES ---- */
+    .features-section { background-color: #fff; padding: 70px 60px; }
+    .features-section .section-header { margin-bottom: 50px; }
+    .features { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+    .feature-card {
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      padding: 35px 25px;
+      text-align: center;
+      background-color: #f9f9f9;
+      border-top: 4px solid #00897b;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,137,123,0.1); }
+    .feature-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+    .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #00695c; margin-bottom: 10px; }
+    .feature-card p { color: #666; font-size: 14px; line-height: 1.7; margin: 0; }
+
      /* ---- HOURS ---- */
     .hours-section {
       background: linear-gradient(135deg, #004d40, #00695c);
