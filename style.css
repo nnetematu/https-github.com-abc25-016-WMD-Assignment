@@ -6,7 +6,6 @@
       color: #333;
     }
 
-    /* ---- NAVIGATION ---- */
     nav {
       background-color: #00897b;
       padding: 18px 40px;
@@ -22,7 +21,6 @@
     nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
     nav ul li a:hover { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
 
-    /* ---- ANNOUNCEMENT BANNER ---- */
     .top-banner {
       background-color: #004d40;
       color: #b2dfdb;
@@ -31,9 +29,7 @@
       font-size: 14px;
       letter-spacing: 0.5px;
     }
-    .top-banner span { color: #fff; font-weight: 700; }
 
-    /* ---- HERO ---- */
     .hero {
       background: linear-gradient(135deg, #004d40 0%, #00695c 50%, #00897b 100%);
       color: #fff;
