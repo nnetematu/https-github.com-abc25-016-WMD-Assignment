@@ -163,6 +163,12 @@
       justify-content: center;
       font-size: 52px;
     }
+    .dish-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
     .dish-badge {
       background-color: #00897b;
       color: #fff;
