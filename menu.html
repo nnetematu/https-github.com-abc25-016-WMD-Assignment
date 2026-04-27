@@ -235,6 +235,24 @@
     }
     .order-btn:hover { background-color: #00695c; }
 
+    /* ---- COMBOS STYLING ---- */
+    #combos .dish-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    #combos .dish-item {
+      flex: 1;
+      min-width: 280px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #combos .dish-details {
+      width: 100%;
+      padding: 20px;
+    }
+
     /* ---- ALLERGEN NOTE ---- */
     .allergen-note {
       background-color: #fff8e1;
@@ -385,12 +403,12 @@
           </div>
 
            <div class="dish-item">
-            <div class="dish-img"></div>
+            <div class="dish-img"><img src="images/samosas.jpg" alt="Samosas"></div>
             <div class="dish-details">
               <div class="dish-top">
                 <h3 class="dish-name">Samosas</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Crunchy pastry triangles filled with savory minced chicken and spices.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P25</span><span class="dish-prep">8 min prep</span></div>
                 <a href="feedback.html" class="order-btn">+ Add to Order</a>
@@ -789,60 +807,16 @@
                 <a href="feedback.html" class="order-btn">+ Add to Order</a>
               </div>
             </div>
-
-        </div>
+        </div>  
       </section>
 
 
       <section class="menu-category" id="drinks">
         <div class="category-header">
-          <span class="category-icon"></span>
           <h2>Drinks</h2>
-          <span class="category-count">5 items</span>
+          <span class="category-count">3 items</span>
         </div>
         <div class="dish-list">
-
-          <div class="dish-item">
-            <div class="dish-img"></div>
-            <div class="dish-details">
-              <div class="dish-top">
-                <h3 class="dish-name">Fresh Fruit Juice</h3>
-              </div>
-              <p class="dish-desc">Freshly squeezed orange or mango juice — whichever is in season. Not from concentrate. If you want guava or mixed fruit, we usually have that too, just ask when ordering.</p>
-              <div class="dish-bottom">
-                <div><span class="dish-price-tag">P20</span><span class="dish-prep">5 min prep</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="dish-item">
-            <div class="dish-img"></div>
-            <div class="dish-details">
-              <div class="dish-top">
-                <h3 class="dish-name">Maheu</h3>
-              </div>
-              <p class="dish-desc">A traditional fermented maize drink that is mildly sour and filling. We make it in-house in small batches. Some people love it, some are trying it for the first time — either way, it is worth ordering once.</p>
-              <div class="dish-bottom">
-                <div><span class="dish-price-tag">P15</span><span class="dish-prep">2 min prep</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="dish-item">
-            <div class="dish-img"></div>
-            <div class="dish-details">
-              <div class="dish-top">
-                <h3 class="dish-name">Rooibos Tea</h3>
-              </div>
-              <p class="dish-desc">Hot rooibos tea served in a sealed cup so it stays warm during delivery. You can ask for milk and sugar on the side — we include them in the bag by default.</p>
-              <div class="dish-bottom">
-                <div><span class="dish-price-tag">P12</span><span class="dish-prep">3 min prep</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
-              </div>
-            </div>
-          </div>
 
           <div class="dish-item">
             <div class="dish-img"></div>
@@ -862,9 +836,23 @@
             <div class="dish-img"></div>
             <div class="dish-details">
               <div class="dish-top">
+                <h3 class="dish-name">Milkshakes</h3>
+              </div>
+              <p class="dish-desc">Chocolate, vanilla or strawberry. Creamy and delicious. If you want a specific one, mention it in the order notes and we will do our best.</p>
+              <div class="dish-bottom">
+                <div><span class="dish-price-tag">P12</span><span class="dish-prep">1 min prep</span></div>
+                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-img"></div>
+            <div class="dish-details">
+              <div class="dish-top">
                 <h3 class="dish-name">Still Water (500ml)</h3>
               </div>
-              <p class="dish-desc">A sealed 500ml bottle of still water. Good to add to any order, especially when you are getting something spicy.</p>
+              <p class="dish-desc">A sealed 500ml bottle of still water. </p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P8</span><span class="dish-prep">1 min prep</span></div>
                 <a href="feedback.html" class="order-btn">+ Add to Order</a>
