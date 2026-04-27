@@ -190,7 +190,7 @@
       transition: background-color 0.3s;
     }
     .add-btn:hover { background-color: #00695c; }
-    
+
 
     /* ---- DELIVERY FEATURES ---- */
     .features-section { background-color: #fff; padding: 70px 60px; }
@@ -216,12 +216,19 @@
       background-color: #002b25;
       color: #80cbc4;
       text-align: center;
-      padding: 40px;
+      padding: 40px 20px;
       font-size: 14px;
-      line-height: 2.4;
+      line-height: 1.8;
+      margin-top: 60px;
     }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
+    footer p { margin: 10px 0; }
+    footer hr { border: none; border-top: 1px solid #00695c; margin: 20px 0; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 15px; }
     .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 10px; }
     .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
     .footer-links a:hover { color: #fff; }
+    .social-media { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+    .social-media a { display: inline-block; }
+    .social-media img { width: 30px; height: 30px; opacity: 0.8; transition: opacity 0.3s; }
+    .social-media a:hover img { opacity: 1; }
 
