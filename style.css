@@ -191,12 +191,25 @@
       border: none;
       padding: 8px 16px;
       font-size: 13px;
-      border-radius: 4px;
+      font-weight: 700;
       cursor: pointer;
+      font-family: 'Lato', sans-serif;
       transition: background-color 0.3s;
     }
     .add-btn:hover { background-color: #00695c; }
-
+    .menu-btn-wrap { text-align: center; margin-top: 40px; }
+    .btn-teal {
+      background-color: #00897b;
+      color: #fff;
+      padding: 15px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-teal:hover { background-color: #00695c; transform: translateY(-2px); }
 
     /* ---- DELIVERY FEATURES ---- */
     .features-section { background-color: #fff; padding: 70px 60px; }
