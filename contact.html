@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matux Kitchen-Contact Us</title>
-    <link rel="stylesheet" href="style.css"/>
-    <style>
+    <link rel="stylesheet" href="style.css" />
+  <style>
 
-body {
+    body {
       font-family: 'Lato', sans-serif;
       margin: 0;
       padding: 0;
@@ -50,40 +50,16 @@ body {
       margin: 0;
     }
 
-    /* ---- QUICK CONTACT STRIP ---- */
-    .quick-strip {
-      background-color: #e0f2f1;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-      border-bottom: 1px solid #b2dfdb;
+    /* ---- BREADCRUMB ---- */
+    .breadcrumb {
+      background-color: #fff;
+      padding: 12px 60px;
+      font-size: 13px;
+      color: #888;
+      border-bottom: 1px solid #e8e8e8;
     }
-    .quick-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 20px 40px;
-      border-right: 1px solid #b2dfdb;
-    }
-    .quick-item:last-child { border-right: none; }
-    .quick-icon { font-size: 24px; }
-    .quick-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #00897b;
-      font-weight: 700;
-      display: block;
-      margin-bottom: 3px;
-    }
-    .quick-value {
-      font-size: 15px;
-      color: #004d40;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .quick-value:hover { text-decoration: underline; }
+    .breadcrumb a { color: #00897b; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
 
     /* ---- MAIN LAYOUT ---- */
     .contact-body {
@@ -98,7 +74,7 @@ body {
       flex: 1;
       min-width: 300px;
       padding: 55px 55px;
-      background-color: #fff;
+      background-color: #e0f2f1;
     }
     .section-tag {
       display: inline-block;
@@ -342,46 +318,68 @@ body {
       line-height: 1.6;
     }
 
-    /* ---- RESPONSE TIME BLOCK ---- */
-    .response-block {
-      margin-top: 25px;
-      background-color: #e0f2f1;
-      border-left: 4px solid #00897b;
-      padding: 16px 18px;
+    /* ---- SOCIAL / OTHER WAYS ---- */
+    .other-ways {
+      background-color: #f0f0f0;
+      padding: 60px;
     }
-    .response-block p {
-      font-size: 13px;
-      color: #444;
-      line-height: 1.7;
-      margin: 0;
-    }
-    .response-block strong { color: #00695c; }
-
-    /* ---- CTA ---- */
-    .cta-section {
-      background: linear-gradient(135deg, #004d40, #00897b);
-      text-align: center;
-      padding: 70px 40px;
-      color: #fff;
-    }
-    .cta-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-    .cta-section p { font-size: 17px; color: #b2dfdb; margin-bottom: 30px; font-weight: 300; }
-    .btn-primary {
-      background-color: #fff;
-      color: #00695c;
-      padding: 14px 38px;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 4px;
+    .other-ways .top-label {
       display: inline-block;
-      transition: background-color 0.3s, transform 0.2s;
+      color: #00897b;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
-    .btn-primary:hover { background-color: #e0f2f1; transform: translateY(-2px); }
+    .other-ways h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #222;
+      margin: 0 0 8px;
+    }
+    .other-ways p.intro {
+      font-size: 15px;
+      color: #666;
+      font-weight: 300;
+      margin-bottom: 35px;
+      line-height: 1.7;
+    }
+    .ways-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .way-card {
+      background-color: #fff;
+      flex: 1;
+      min-width: 200px;
+      padding: 28px 25px;
+      border-top: 4px solid #00897b;
+      transition: transform 0.3s;
+    }
+    .way-card:hover { transform: translateY(-4px); }
+    .way-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+    .way-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: #222;
+      margin: 0 0 8px;
+    }
+    .way-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+      margin: 0 0 14px;
+    }
+    .way-card a {
+      font-size: 14px;
+      font-weight: 700;
+      color: #00897b;
+      text-decoration: none;
+    }
+    .way-card a:hover { text-decoration: underline; }
+
 
     /* ---- FOOTER ---- */
     footer {
@@ -428,13 +426,13 @@ body {
 
   <!-- NAVIGATION -->
   <nav>
-    <div class="logo">Matux Kitchen</div>
+    <div class="logo">Savana Kitchen</div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="menu.html">Menu</a></li>
-      <li><a href="team.html">Meet Our Team</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
       <li><a href="feedback.html">Feedback</a></li>
     </ul>
   </nav>
@@ -444,32 +442,9 @@ body {
     <h1>Contact Us</h1>
   </section>
 
-  <!-- QUICK CONTACT STRIP -->
-  <div class="quick-strip">
-    <div class="quick-item">
-      <div>
-        <span class="quick-label">Call Us</span>
-        <a href="tel:+267 72359988" class="quick-value">+267 72359988</a>
-      </div>
-    </div>
-    <div class="quick-item">
-      <div>
-        <span class="quick-label">Email Us</span>
-        <a href="mailto:info@MatuxKitchen.co.bw" class="quick-value">info@MatuxKitchen.co.bw</a>
-      </div>
-    </div>
-    <div class="quick-item">
-      <div>
-        <span class="quick-label">Whatsapp Us</span>
-        <a href="https://wa.me/26772359988" class="quick-value" target="_blank">Chat with us on WhatsApp</a>
-      </div>
-    </div>
-    <div class="quick-item">
-      <div>
-        <span class="quick-label">Delivery Time</span>
-        <span class="quick-value">30 &ndash; 45 minutes</span>
-      </div>
-    </div>
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> &rsaquo; Contact Us
   </div>
 
   <!-- MAIN BODY -->
@@ -480,7 +455,7 @@ body {
       <span class="section-tag">Send a Message</span>
       <h2>We Will Get Back to You</h2>
       <p class="form-intro">
-        Use this form for any question that does not need an immediate answer — things like catering enquiries, bulk orders, complaints about a past order, or just something you could not find on the website. If you need something quickly, call us instead. The form is checked a few times a day during ordering hours.
+        Thank you for choosing and trusting Matux Kitchen. This contact page is intended for order placement, menu-related inquiries and any clarification on any dish or ingredient you're unsure about. Please note that order confirmations will be sent to the email address or phone number you provide. For urgent orders or time-sensitive changes, we recommend calling us directly. The form is checked a few times a day during ordering hours.
       </p>
       <p class="form-required-note">Fields marked with * are required.</p>
 
@@ -512,12 +487,13 @@ body {
           <label for="contact-reason">What Is This About? *</label>
           <select id="contact-reason" name="reason" required>
             <option value="">-- Select a reason --</option>
-            <option value="order_issue">Problem with a past order</option>
             <option value="bulk_order">Bulk or office order enquiry</option>
             <option value="catering">Catering for an event</option>
+            <option value="delivery_area">Question about delivery areas</option>
             <option value="menu_question">Question about the menu or ingredients</option>
             <option value="payment">Payment or billing issue</option>
             <option value="partnership">Business or partnership enquiry</option>
+            <option value="compliment">Just wanted to say something nice</option>
             <option value="other">Something else</option>
           </select>
         </div>
@@ -554,7 +530,7 @@ body {
       </form>
 
       <div class="success-msg" id="contact-success">
-       &nbsp; <strong>Your message has been sent.</strong> We will get back to you within a few minutes on weekdays. 
+         <strong>Your message has been sent and received.</strong> We will get back to you as soon as we can.
       </div>
 
     </div>
@@ -567,33 +543,18 @@ body {
       </p>
 
       <div class="info-block">
-        <span class="info-icon"></span>
-        <div class="info-content">
-          <div class="info-title">Phone &amp; WhatsApp</div>
-          <div class="info-text">
-            <a href="tel:+267 72359988">+267 72359988</a>
-          </div>
-          <div class="info-sub">Available during ordering hours only.On Weekdays we do not take calls after 9pm. On Saturday we do not take calls after 8pm and on Sundays, after 4pm.</div>
-        </div>
-      </div>
-
-      <div class="info-block">
-        <span class="info-icon"></span>
-        <div class="info-content">
-          <div class="info-title">Email</div>
-          <div class="info-text">
-            <a href="mailto:info@MatuxKitchen.co.bw">info@MatuxKitchen.co.bw</a>
-          </div>
-          <div class="info-sub">Replies within an hour on weekdays. Weekends can take a bit longer.</div>
-        </div>
-      </div>
-
-      <div class="info-block">
-        <span class="info-icon"></span>
         <div class="info-content">
           <div class="info-title">Location</div>
           <div class="info-text">Gaborone CBD, Botswana</div>
           <div class="info-sub">Delivery only &mdash; we do not have a walk-in location.</div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-content">
+          <div class="info-title">Delivery Fee</div>
+          <div class="info-text">Free on orders over P100</div>
+          <div class="info-sub">P20 flat fee for orders under P100 within our delivery zones.</div>
         </div>
       </div>
 
@@ -642,24 +603,54 @@ body {
           <li>Extension 15</li>
         </ul>
       </div>
-
-      <!-- RESPONSE TIME -->
-      <div class="response-block">
-        <p>
-          <strong>Average response time:</strong> phone calls are answered immediately during ordering hours. Emails and form messages are usually replied to within <strong>1 to 2 hours</strong> on weekdays.
-        </p>
-      </div>
     </aside>
   </div>
 
+  <!-- WAYS TO REACH US -->
+  <section class="other-ways">
+    <span class="top-label">More Ways to Reach Us</span>
+    <h2>We Are on Multiple Channels</h2>
+    <p class="intro">
+      The contact form is fine for most things, but sometimes a quick message or call is faster. Here are all the ways you can get hold of us.
+    </p>
+    <div class="ways-grid">
+
+      <div class="way-card">
+        <h3>Call Us Directly</h3>
+        <p>Best for urgent orders, last-minute changes, or if you want to confirm something before placing an order. We pick up during ordering hours.</p>
+        <a href="tel:+26772359988">+267 72359988</a>
+      </div>
+
+      <div class="way-card">
+        <h3>WhatsApp</h3>
+        <p>Send us a message on WhatsApp for anything that is not urgent. We check it regularly and it is often the easiest way to sort out a quick question.</p>
+        <a href="https://wa.me/26772359988">Chat on WhatsApp</a>
+      </div>
+
+      <div class="way-card">
+        <h3>Email</h3>
+        <p>Good for longer messages, complaints that need a proper written response, or catering and bulk order enquiries where you need something in writing.</p>
+        <a href="mailto:info@MatuxKitchen.co.bw">info@MatuxKitchen.co.bw</a>
+      </div>
+
+      <div class="way-card">
+        <span class="way-icon">&#128203;</span>
+        <h3>Use the Form</h3>
+        <p>The contact form on this page is the right option when you need to give us a lot of detail — like a clarity on a specific dish, any dietary preferences or an event catering request.</p>
+        <a href="#contact-message">Go to the form &uarr;</a>
+      </div>
+
+    </div>
+  </section>
+
   <footer>
+    <span class="footer-logo">Matux Kitchen</span>
     <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
     <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
     <hr>
     <section id="social media">
         <a href="https://www.facebook.com/MatuxKitchen" target="_blank"><img src="FB.jpg" alt="Facebook"></a>
         <a href="https://wa.me/26772359988" target="_blank"><img src="WA.jpg" alt="WhatsApp"></a>
-    </section>  
   </footer>
 
   <script>
