@@ -400,15 +400,15 @@
       nav { padding:0 16px; }
       nav ul { display:none; }
       .menu-wrapper { flex-direction:column; }
-      .sidebar { width:100%; height:auto; position:static; border-right:none; border-bottom:1px solid #e0e0e0; padding:16px; }
-      .sidebar ul { display:flex; flex-wrap:wrap; gap:6px; }
-      .sidebar ul li a { padding:5px 12px; font-size:13px; border-left:none; border-bottom:3px solid transparent; border-radius:6px; }
-      .sidebar ul li a:hover, .sidebar ul li a.active { border-left:none; border-bottom-color:var(--teal); }
       .menu-main { padding:24px 16px; }
       .dish { flex-direction:column; }
       .dish-img { width:100%; height:160px; }
       .cart-drawer { width:100vw; }
       .notice { padding:12px 16px; }
+      .menu-sidebar { width:100%; height:auto; position:static; border-right:none; border-bottom:1px solid #e0e0e0; padding:16px; }
+      .menu-sidebar ul { display:flex; flex-wrap:wrap; gap:6px; }
+      .menu-sidebar ul li a { padding:5px 12px; font-size:13px; border-left:none; border-bottom:3px solid transparent; border-radius:6px; }
+      .menu-sidebar ul li a:hover, .menu-sidebar ul li a.active { border-left:none; border-bottom-color:var(--teal); }
     }
 
   </style>
@@ -443,7 +443,7 @@
         <li><a href="#starters">Starters</a></li>
         <li><a href="#mains">Main Courses</a></li>
         <li><a href="#sides">Sides</a></li>
-        <li><a href="#pasta" class="active">Pasta And Comfort Bowls</a></li>
+        <li><a href="#pasta">Pasta And Comfort Bowls</a></li>
         <li><a href="#salads">Salads</a></li>
         <li><a href="#desserts">Desserts</a></li>
         <li><a href="#drinks">Drinks</a></li>
@@ -1138,125 +1138,7 @@
             <button class="qty-btn" onclick="changeQty('${item.id}', ${item.qty + 1})">+</button>
             <button class="remove-btn" onclick="removeItem('${item.id}')" title="Remove">🗑</button>
           </div>
-        </div>        const Cart = {
-
-  /* ── read / write ───────────────────────────────────────── */
-  get() {
-    try {
-      return JSON.parse(sessionStorage.getItem('matux_cart') || '[]');
-    } catch {
-      return [];
-    }
-  },
-
-  save(items) {
-    sessionStorage.setItem('matux_cart', JSON.stringify(items));
-    Cart._notify();
-  },
-
-  /* ── add an item ────────────────────────────────────────── */
-  add(id, name, price) {
-    const items = Cart.get();
-    const existing = items.find(i => i.id === id);
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      items.push({ id, name, price, qty: 1 });
-    }
-    Cart.save(items);
-    Cart._showToast(name);
-    Cart._updateBadge();
-  },
-
-  /* ── remove one item completely ─────────────────────────── */
-  remove(id) {
-    const items = Cart.get().filter(i => i.id !== id);
-    Cart.save(items);
-    Cart._updateBadge();
-  },
-
-  /* ── change quantity ────────────────────────────────────── */
-  setQty(id, qty) {
-    const items = Cart.get();
-    const item = items.find(i => i.id === id);
-    if (!item) return;
-    if (qty < 1) {
-      Cart.remove(id);
-      return;
-    }
-    item.qty = qty;
-    Cart.save(items);
-    Cart._updateBadge();
-  },
-
-  /* ── clear everything ───────────────────────────────────── */
-  clear() {
-    sessionStorage.removeItem('matux_cart');
-    Cart._notify();
-    Cart._updateBadge();
-  },
-
-  /* ── totals ─────────────────────────────────────────────── */
-  total() {
-    return Cart.get().reduce((sum, i) => sum + i.price * i.qty, 0);
-  },
-
-  count() {
-    return Cart.get().reduce((sum, i) => sum + i.qty, 0);
-  },
-
-  /* ── build order summary string for the contact form ─────── */
-  orderSummary() {
-    const items = Cart.get();
-    if (!items.length) return '';
-    const lines = items.map(i => `${i.qty}x ${i.name} @ P${i.price} each`);
-    lines.push('');
-    lines.push(`TOTAL: P${Cart.total()}`);
-    return lines.join('\n');
-  },
-
-  /* ── update cart badge number in nav ────────────────────── */
-  _updateBadge() {
-    const badge = document.getElementById('cart-badge');
-    if (!badge) return;
-    const count = Cart.count();
-    badge.textContent = count;
-    badge.style.display = count > 0 ? 'flex' : 'none';
-  },
-
-  /* ── fire a custom event so any open panel can refresh ──── */
-  _notify() {
-    window.dispatchEvent(new CustomEvent('cartUpdated'));
-  },
-
-  /* ── small toast popup ──────────────────────────────────── */
-  _showToast(name) {
-    let toast = document.getElementById('cart-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'cart-toast';
-      toast.style.cssText = `
-        position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
-        background:#004d40; color:#fff; padding:12px 24px;
-        border-radius:30px; font-size:14px; font-weight:600;
-        box-shadow:0 8px 30px rgba(0,0,0,0.2); z-index:9999;
-        opacity:0; transition:opacity 0.3s; white-space:nowrap;
-        font-family:'DM Sans',sans-serif;
-      `;
-      document.body.appendChild(toast);
-    }
-    toast.textContent = `✓  ${name} added to cart`;
-    toast.style.opacity = '1';
-    clearTimeout(toast._timer);
-    toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, 2500);
-  }
-};
-
-/* ── auto-init badge on every page load ─────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-  Cart._updateBadge();
-});
-      `).join('');
+        </div>`).join('');
     }
 
     function changeQty(id, qty) {
