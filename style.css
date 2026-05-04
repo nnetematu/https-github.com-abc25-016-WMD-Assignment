@@ -1,4 +1,16 @@
-  body {
+:root {
+      --teal: #00897b;
+      --teal-mid: #26a69a;
+      --teal-dark: #00695c;
+      --teal-light: #b2dfdb;
+      --ink: #222;
+      --ink-soft: #777;
+      --cream: #f9f6f0;
+      --gold: #fdd835;
+      --teal-pale: #e0f2f1;
+    }
+
+    body {
       font-family: 'Lato', sans-serif;
       margin: 0;
       padding: 0;
