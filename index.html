@@ -194,22 +194,12 @@
   </footer>
 
   <script>
-    const nav = document.querySelector('nav');
     const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelectorAll('nav ul li a');
+    const navMenu = document.querySelector('nav ul');
 
     navToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      const expanded = nav.classList.contains('open');
-      navToggle.setAttribute('aria-expanded', expanded);
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+      navMenu.classList.toggle('nav-menu-active');
+    }); 
   </script>
 </body>
 </html>
