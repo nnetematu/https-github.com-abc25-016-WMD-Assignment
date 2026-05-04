@@ -4,661 +4,487 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matux Kitchen-Contact Us</title>
-    <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: 'Lato', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+       :root {
+      --teal-dark:  #004d40;
+      --teal:       #00897b;
+      --teal-mid:   #00695c;
+      --teal-light: #b2dfdb;
+      --teal-pale:  #e0f2f1;
+      --gold:       #c9a84c;
+      --cream:      #faf7f2;
+      --ink:        #1a1a1a;
+      --ink-soft:   #6b6b6b;
     }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--ink); }
 
-    /* ---- NAV ---- */
+    /* NAV */
     nav {
-      background-color: #00897b;
-      padding: 18px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background:rgba(0,77,64,0.97);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 48px; height:64px; position:sticky; top:0; z-index:100;
     }
-    .logo { color: #fff; font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 1px; }
-    nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-    nav ul li a { color: #e0f2f1; text-decoration: none; font-size: 15px; }
-    nav ul li a:hover { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
+    .logo-wrap { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .logo-icon { width:36px; height:36px; background:var(--gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+    .logo-text { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:#fff; }
+    nav ul { list-style:none; display:flex; gap:4px; }
+    nav ul li a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:13.5px; font-weight:500; padding:6px 12px; border-radius:6px; transition:all 0.2s; }
+    nav ul li a:hover { color:#fff; background:rgba(255,255,255,0.1); }
+    .cart-nav-btn {
+      position:relative; background:var(--gold); color:var(--teal-dark);
+      border:none; cursor:pointer; display:flex; align-items:center; gap:8px;
+      padding:8px 16px; border-radius:8px; font-size:14px; font-weight:700;
+      font-family:'DM Sans',sans-serif; transition:all 0.2s;
+    }
+    .cart-nav-btn:hover { background:#f0d98a; }
+    #cart-badge {
+      display:none; position:absolute; top:-6px; right:-6px;
+      background:#e53935; color:#fff; width:20px; height:20px;
+      border-radius:50%; font-size:11px; font-weight:700;
+      align-items:center; justify-content:center;
+    }
 
-    /* ---- PAGE HEADER ---- */
+    /* PAGE HEADER */
     .page-header {
-      background: linear-gradient(135deg, #004d40 0%, #00695c 60%, #00897b 100%);
-      color: #fff;
-      text-align: center;
-      padding: 75px 20px 65px;
+      background:linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color:#fff; text-align:center; padding:60px 20px 50px;
     }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      margin: 0 0 12px;
-    }
-    .page-header p {
-      font-size: 17px;
-      color: #b2dfdb;
-      font-weight: 300;
-      margin: 0;
-    }
+    .page-header h1 { font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:700; margin-bottom:8px; }
+    .page-header p { font-size:16px; color:var(--teal-light); font-weight:300; }
 
-    /* ---- BREADCRUMB ---- */
     .breadcrumb {
-      background-color: #fff;
-      padding: 12px 60px;
-      font-size: 13px;
-      color: #888;
-      border-bottom: 1px solid #e8e8e8;
+      background-color: #b2dfdb;
+      padding: 12px 20px; border-radius:8px;
+      font-size:13px; 
+      color:var(--teal-dark);
+      border-bottom: 1px solid #888;
     }
-    .breadcrumb a { color: #00897b; text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
-
-    /* ---- MAIN LAYOUT ---- */
-    .contact-body {
-      display: flex;
-      gap: 0;
-      flex-wrap: wrap;
-      align-items: flex-start;
+    .breadcrumb a {
+      color:#00897b; text-decoration:none; 
+    }
+    .breadcrumb a:hover {
+      text-decoration:underline;
     }
 
-    /* ---- LEFT: CONTACT FORM ---- */
-    .contact-form-area {
-      flex: 1;
-      min-width: 300px;
-      padding: 55px 55px;
-      background-color: #f9f9f9;
-    }
-    .section-tag {
-      display: inline-block;
-      color: #00897b;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .contact-form-area h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: #222;
-      margin: 0 0 10px;
-    }
-    .form-intro {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 30px;
-    }
-    .form-required-note {
-      font-size: 12px;
-      color: #aaa;
-      margin-bottom: 25px;
+    /* MAIN LAYOUT */
+    .checkout-layout {
+      display:flex; gap:28px; padding:40px 56px;
+      max-width:1100px; margin:0 auto; align-items:flex-start;
     }
 
-    /* ---- FORM ELEMENTS ---- */
-    .form-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 20px;
-      flex: 1;
-      min-width: 200px;
-    }
-    .form-group.full { flex: 1 1 100%; min-width: 100%; }
+    /* LEFT — FORM */
+    .checkout-form-wrap { flex:1; }
 
-    label {
-      font-size: 14px;
-      font-weight: 700;
-      color: #333;
+    .form-section {
+      background:#fff; border-radius:14px;
+      padding:28px 30px; margin-bottom:20px;
     }
-    .label-note {
-      font-weight: 400;
-      color: #999;
-      font-size: 12px;
-      margin-left: 5px;
+    .form-section h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px; font-weight:700; color:var(--teal-dark);
+      margin-bottom:20px; padding-bottom:12px;
+      border-bottom:2px solid var(--teal-pale);
+      display:flex; align-items:center; gap:10px;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select,
-    textarea {
-      padding: 11px 14px;
-      font-size: 15px;
-      border: 1px solid #ccc;
-      font-family: 'Lato', sans-serif;
-      color: #333;
-      background-color: #fff;
-      width: 100%;
-      box-sizing: border-box;
-      transition: border-color 0.2s;
+    .form-row { display:flex; gap:16px; flex-wrap:wrap; }
+    .form-group { display:flex; flex-direction:column; gap:6px; flex:1; min-width:200px; margin-bottom:16px; }
+    .form-group.full { flex:1 1 100%; }
+
+    label { font-size:13px; font-weight:700; color:#444; }
+    .label-note { font-weight:400; color:#aaa; font-size:12px; margin-left:4px; }
+
+    input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea {
+      padding:11px 14px; font-size:14px;
+      border:1.5px solid #e0e0e0; border-radius:8px;
+      font-family:'DM Sans',sans-serif; color:var(--ink);
+      background:#fff; width:100%;
+      transition:border-color 0.2s;
     }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #00897b;
-    }
-    input::placeholder, textarea::placeholder {
-      color: #bbb;
-      font-size: 14px;
-    }
+    input:focus, select:focus, textarea:focus { outline:none; border-color:var(--teal); }
+    input::placeholder, textarea::placeholder { color:#bbb; font-size:13px; }
 
     .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: #555;
-      cursor: pointer;
+      display:flex; align-items:flex-start; gap:10px;
+      font-size:14px; color:#555; cursor:pointer;
+      margin-bottom:10px;
     }
-    .check-item input[type="checkbox"] {
-      width: 17px;
-      height: 17px;
-      margin-top: 2px;
-      flex-shrink: 0;
-      accent-color: #00897b;
-      cursor: pointer;
+    .check-item input[type=checkbox], .check-item input[type=radio] {
+      width:17px; height:17px; margin-top:2px;
+      flex-shrink:0; accent-color:var(--teal); cursor:pointer;
     }
 
     .submit-btn {
-      background-color: #00897b;
-      color: #fff;
-      padding: 14px 40px;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      font-family: 'Lato', sans-serif;
-      transition: background-color 0.3s, transform 0.2s;
-      margin-top: 10px;
+      width:100%; background:var(--teal-dark); color:#fff;
+      border:none; padding:16px; border-radius:10px;
+      font-size:16px; font-weight:700; cursor:pointer;
+      font-family:'DM Sans',sans-serif;
+      transition:background 0.25s;
+      display:flex; align-items:center; justify-content:center; gap:10px;
     }
-    .submit-btn:hover { background-color: #00695c; transform: translateY(-2px); }
+    .submit-btn:hover { background:var(--teal); }
 
+    /* SUCCESS MESSAGE */
     .success-msg {
-      display: none;
-      background-color: #e0f2f1;
-      border-left: 4px solid #00897b;
-      padding: 18px 22px;
-      font-size: 15px;
-      color: #004d40;
-      margin-top: 20px;
-      line-height: 1.7;
+      display:none;
+      background:var(--teal-pale);
+      border-left:4px solid var(--teal);
+      border-radius:8px;
+      padding:20px 24px;
+      font-size:15px; color:var(--teal-dark);
+      margin-top:16px; line-height:1.8;
+    }
+    .success-msg strong { display:block; font-size:17px; margin-bottom:6px; }
+
+    /* RIGHT — ORDER SUMMARY */
+    .order-summary {
+      width:320px; flex-shrink:0;
+      position:sticky; top:80px;
+    }
+    .summary-card {
+      background:#fff; border-radius:14px;
+      padding:24px; margin-bottom:16px;
+    }
+    .summary-card h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px; font-weight:700; color:var(--teal-dark);
+      margin-bottom:16px; padding-bottom:12px;
+      border-bottom:2px solid var(--teal-pale);
     }
 
-    /* ---- RIGHT: CONTACT DETAILS SIDEBAR ---- */
-    .contact-details-sidebar {
-      width: 360px;
-      flex-shrink: 0;
-      background-color: #e0f2f1;
-      border-left: 1px solid #e0e0e0;
-      padding: 55px 35px;
+    .summary-empty { text-align:center; color:#aaa; padding:20px 0; font-size:14px; }
+    .summary-empty span { font-size:38px; display:block; margin-bottom:10px; }
+
+    .summary-item {
+      display:flex; justify-content:space-between; align-items:flex-start;
+      padding:10px 0; border-bottom:1px solid #f5f5f5; gap:10px;
     }
-    .contact-details-sidebar h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      color: #222;
-      margin: 0 0 8px;
+    .summary-item:last-of-type { border-bottom:none; }
+    .si-left { flex:1; }
+    .si-name { font-size:14px; font-weight:600; color:var(--ink); margin-bottom:2px; }
+    .si-qty { font-size:12px; color:var(--ink-soft); }
+    .si-price { font-size:14px; font-weight:700; color:var(--teal); flex-shrink:0; }
+
+    .summary-total-row {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-top:14px; padding-top:14px;
+      border-top:2px solid var(--teal-pale);
     }
-    .sidebar-intro {
-      font-size: 14px;
-      color: #777;
-      line-height: 1.7;
-      margin-bottom: 30px;
-      font-weight: 300;
+    .summary-total-label { font-size:14px; color:#888; font-weight:600; }
+    .summary-total-val {
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:700; color:var(--teal-dark);
     }
 
-    /* ---- INFO BLOCKS ---- */
-    .info-block {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-      padding: 18px 0;
-      border-bottom: 1px solid #e8e8e8;
+    .free-delivery-note {
+      background:var(--teal-pale); border-radius:8px;
+      padding:10px 14px; font-size:13px; color:var(--teal-dark);
+      display:flex; align-items:center; gap:8px; margin-top:14px;
     }
-    .info-block:first-of-type { border-top: 1px solid #e8e8e8; }
-    .info-icon {
-      font-size: 22px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .info-content {}
-    .info-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #00897b;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-    .info-text {
-      font-size: 15px;
-      color: #333;
-      line-height: 1.7;
-    }
-    .info-text a {
-      color: #00695c;
-      text-decoration: none;
-    }
-    .info-text a:hover { text-decoration: underline; }
-    .info-sub {
-      font-size: 12px;
-      color: #999;
-      margin-top: 3px;
-    }
+    .free-delivery-note.not-yet { background:#fff8e1; color:#795548; }
 
-    /* ---- HOURS TABLE ---- */
-    .hours-block {
-      margin-top: 28px;
+    .back-to-menu {
+      display:block; text-align:center; margin-top:14px;
+      color:var(--teal); font-size:14px; font-weight:600;
+      text-decoration:none; padding:12px;
+      border:1.5px solid var(--teal-pale); border-radius:8px;
+      transition:all 0.2s;
     }
-    .hours-block-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #00897b;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .hours-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 9px 0;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
-    }
-    .hours-row:last-child { border-bottom: none; }
-    .hours-day { color: #555; }
-    .hours-time { font-weight: 700; color: #222; }
-    .hours-closed { color: #e57373; font-weight: 700; }
+    .back-to-menu:hover { background:var(--teal-pale); }
 
-    /* ---- DELIVERY ZONES ---- */
-    .zones-block {
-      margin-top: 28px;
-      background-color: #004d40;
-      padding: 22px;
-    }
-    .zones-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #80cbc4;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .zones-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .zones-list li {
-      background-color: rgba(255,255,255,0.1);
-      color: #e0f2f1;
-      font-size: 13px;
-      padding: 5px 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    .zones-note {
-      font-size: 12px;
-      color: #80cbc4;
-      margin-top: 12px;
-      line-height: 1.6;
-    }
-
-    /* ---- SOCIAL / OTHER WAYS ---- */
-    .other-ways {
-      background-color: #f0f0f0;
-      padding: 60px;
-    }
-    .other-ways .top-label {
-      display: inline-block;
-      color: #00897b;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .other-ways h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: #222;
-      margin: 0 0 8px;
-    }
-    .other-ways p.intro {
-      font-size: 15px;
-      color: #666;
-      font-weight: 300;
-      margin-bottom: 35px;
-      line-height: 1.7;
-    }
-    .ways-grid {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .way-card {
-      background-color: #fff;
-      flex: 1;
-      min-width: 200px;
-      padding: 28px 25px;
-      border-top: 4px solid #00897b;
-      transition: transform 0.3s;
-    }
-    .way-card:hover { transform: translateY(-4px); }
-    .way-icon { font-size: 32px; margin-bottom: 14px; display: block; }
-    .way-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 19px;
-      color: #222;
-      margin: 0 0 8px;
-    }
-    .way-card p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.7;
-      margin: 0 0 14px;
-    }
-    .way-card a {
-      font-size: 14px;
-      font-weight: 700;
-      color: #00897b;
-      text-decoration: none;
-    }
-    .way-card a:hover { text-decoration: underline; }
-
-
-    /* ---- FOOTER ---- */
-    footer {
-      background-color: #002b25;
-      color: #80cbc4;
-      text-align: center;
-      padding: 40px;
-      font-size: 14px;
-      line-height: 2.4;
-    }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
-    .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 5px; }
-    .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
-    .footer-links a:hover { color: #fff; }
-
-    /* ---- RESPONSIVE ---- */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .contact-body { flex-direction: column; }
-      .contact-details-sidebar { width: 100%; border-left: none; border-top: 1px solid #e0e0e0; box-sizing: border-box; }
-      .contact-form-area { padding: 40px 25px; }
-      .map-section { padding: 40px 25px; }
-      .other-ways { padding: 40px 25px; }
-      .quick-item { padding: 15px 20px; }
+      .checkout-layout { flex-direction:column; padding:24px 20px; }
+      .order-summary { width:100%; position:static; }
     }
-
     @media (max-width: 600px) {
-      nav { flex-direction: column; align-items: flex-start; gap: 10px; padding: 15px 20px; }
-      nav ul { flex-direction: column; gap: 6px; }
-      .page-header h1 { font-size: 32px; }
-      .breadcrumb { padding: 12px 20px; }
-      .quick-strip { flex-direction: column; }
-      .quick-item { border-right: none; border-bottom: 1px solid #b2dfdb; }
-      .quick-item:last-child { border-bottom: none; }
-      .contact-form-area { padding: 30px 20px; }
-      .contact-details-sidebar { padding: 30px 20px; }
-      .form-row { flex-direction: column; gap: 0; }
-      .ways-grid { flex-direction: column; }
-      .way-card { min-width: 100%; }
+      nav { padding:0 16px; }
+      nav ul { display:none; }
+      .page-header h1 { font-size:32px; }
+      .form-row { flex-direction:column; }
     }
-
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <nav>
-    <div class="logo">Savana Kitchen</div>
+      <div class="logo">Matux Kitchen</div>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="team.html">Meet Our Team</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="menu.html">← Back to Menu</a></li>
     </ul>
+    <button class="cart-nav-btn" onclick="window.location.href='menu.html'">
+      <span id="cart-badge"></span>
+    </button>
   </nav>
 
   <!-- PAGE HEADER -->
   <section class="page-header">
-    <h1>Contact Us</h1>
+    <h1>Complete Your Order</h1>
+    <p>Fill in your details below and we will confirm your order within 2 minutes</p>
   </section>
 
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> &rsaquo; Contact Us
-  </div>
+  <!-- CHECKOUT LAYOUT -->
+  <div class="checkout-layout">
 
-  <!-- MAIN BODY -->
-  <div class="contact-body">
+    <!-- LEFT: FORM -->
+    <div class="checkout-form-wrap">
 
-    <!-- LEFT: CONTACT FORM -->
-    <div class="contact-form-area">
-      <span class="section-tag">Send a Message</span>
-      <h2>We Will Get Back to You</h2>
-      <p class="form-intro">
-        Thank you for choosing and trusting Matux Kitchen. This contact page is intended for order placement, menu-related inquiries and any clarification on any dish or ingredient you're unsure about. Please note that order confirmations will be sent to the email address or phone number you provide. For urgent orders or time-sensitive changes, we recommend calling us directly. The form is checked a few times a day during ordering hours.
-      </p>
-      <p class="form-required-note">Fields marked with * are required.</p>
+      <!-- EMPTY CART WARNING -->
+      <div id="empty-warning" style="display:none;" class="form-section">
+        <p style="text-align:center; color:#888; padding:20px 0;">
+          <span style="font-size:48px; display:block; margin-bottom:12px;"></span>
+          Your cart is empty. <a href="menu.html" style="color:var(--teal); font-weight:700;">Go back to the menu</a> and add some items first.
+        </p>
+      </div>
 
-      <form action="#" method="post" onsubmit="showSuccess(); return false;">
+      <form id="order-form" action="#" method="post" onsubmit="submitOrder(event)">
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="contact-fname">First Name *</label>
-            <input type="text" id="contact-fname" name="first_name" placeholder="e.g. Boitumelo" required />
+        <!-- CONTACT DETAILS -->
+        <div class="form-section">
+          <h2>Your Details</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" name="first_name" placeholder="e.g. Boitumelo" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" name="last_name" placeholder="e.g. Motsepe" required />
+            </div>
           </div>
-          <div class="form-group">
-            <label for="contact-lname">Last Name *</label>
-            <input type="text" id="contact-lname" name="last_name" placeholder="e.g. Motsepe" required />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+267 7X XXX XXX" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="label-note">(optional)</span></label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" />
+            </div>
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="contact-email">Email Address *</label>
-            <input type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+        <!-- DELIVERY DETAILS -->
+        <div class="form-section">
+          <h2>Delivery Details</h2>
+          <div class="form-group full">
+            <label for="address">Street Address *</label>
+            <input type="text" id="address" name="address" placeholder="Plot number, street name, area" required />
           </div>
-          <div class="form-group">
-            <label for="contact-phone">Phone Number <span class="label-note">(optional)</span></label>
-            <input type="tel" id="contact-phone" name="phone" placeholder="+267 7X XXX XXX" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="area">Delivery Area *</label>
+              <select id="area" name="area" required>
+                <option value="">— Select your area —</option>
+                <option>Gaborone CBD</option>
+                <option>Broadhurst</option>
+                <option>Tlokweng</option>
+                <option>Mogoditshane</option>
+                <option>Phakalane</option>
+                <option>Extension 15</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="delivery-time">Preferred Delivery Time *</label>
+              <select id="delivery-time" name="delivery_time" required>
+                <option value="">— Select time —</option>
+                <option>In about 30 minutes</option>
+                <option>In about 1 hour</option>
+                <option>Schedule for a specific time</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label for="landmark">Landmark or Gate Notes <span class="label-note">(optional but helpful)</span></label>
+            <input type="text" id="landmark" name="landmark" placeholder="e.g. Next to Choppies, blue gate, flat 4B..." />
           </div>
         </div>
 
-        <div class="form-group full">
-          <label for="contact-reason">What Is This About? *</label>
-          <select id="contact-reason" name="reason" required>
-            <option value="">-- Select a reason --</option>
-            <option value="bulk_order">Bulk or office order enquiry</option>
-            <option value="catering">Catering for an event</option>
-            <option value="delivery_area">Question about delivery areas</option>
-            <option value="menu_question">Question about the menu or ingredients</option>
-            <option value="payment">Payment or billing issue</option>
-            <option value="partnership">Business or partnership enquiry</option>
-            <option value="compliment">Just wanted to say something nice</option>
-            <option value="other">Something else</option>
-          </select>
+        <!-- ORDER SUMMARY (auto-filled) -->
+        <div class="form-section">
+          <h2>Your Order</h2>
+          <div class="form-group full">
+            <label for="order-items">Items in Your Order *</label>
+            <textarea id="order-items" name="order_items" rows="6" placeholder="Your cart items will appear here automatically..." required readonly style="background:#f9f9f9; color:#333; font-size:13px; line-height:1.8;"></textarea>
+          </div>
+          <div class="form-group full">
+            <label for="special-notes">Special Requests <span class="label-note">(optional)</span></label>
+            <textarea id="special-notes" name="special_notes" rows="3" placeholder="Allergies, extra sauce, no onions — anything we should know about your order..."></textarea>
+          </div>
         </div>
 
-        <div class="form-group full">
-          <label for="contact-order-ref">Order Reference Number <span class="label-note">(if your message is about a specific order)</span></label>
-          <input type="text" id="contact-order-ref" name="order_ref" placeholder="e.g. SK-20260415-001 — leave blank if not applicable" />
+        <!-- PAYMENT -->
+        <div class="form-section">
+          <h2> Payment Method</h2>
+          <div class="check-item">
+            <input type="radio" name="payment" value="cash" id="pay-cash" required />
+            <label for="pay-cash"> Cash on Delivery</label>
+          </div>
+          <div class="check-item">
+            <input type="radio" name="payment" value="orange" id="pay-orange" />
+            <label for="pay-orange">Orange Money</label>
+          </div>
+          <div class="check-item">
+            <input type="radio" name="payment" value="card" id="pay-card" />
+            <label for="pay-card">Card (we will call you for details)</label>
+          </div>
         </div>
 
-        <div class="form-group full">
-          <label for="contact-message">Your Message *</label>
-          <textarea id="contact-message" name="message" rows="6" placeholder="Tell us what you need. The more detail you give, the faster we can actually help you." required></textarea>
+        <!-- CONFIRM -->
+        <div class="form-section">
+          <div class="check-item">
+            <input type="checkbox" id="confirm" name="confirm" required />
+            <label for="confirm">I confirm that my delivery details are correct and I am ready to receive my order.</label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="newsletter" name="newsletter" />
+            <label for="newsletter">Add me to the Matux Kitchen mailing list for promotions and new dishes.</label>
+          </div>
+          <br />
+          <button type="submit" class="submit-btn" id="submit-btn">
+             Place My Order
+          </button>
         </div>
-
-        <div class="form-group full">
-          <label for="contact-pref">How Should We Get Back to You? *</label>
-          <select id="contact-pref" name="contact_pref" required>
-            <option value="">-- Select a method --</option>
-            <option value="email">Email</option>
-            <option value="phone">Phone call</option>
-            <option value="whatsapp">WhatsApp</option>
-          </select>
-        </div>
-
-        <div class="form-group full">
-          <label class="check-item">
-            <input type="checkbox" name="newsletter" />
-            Add me to the mailing list for new dishes and promotions
-          </label>
-        </div>
-
-        <button type="submit" class="submit-btn">Send Message</button>
 
       </form>
 
-      <div class="success-msg" id="contact-success">
-         <strong>Your message has been sent and received.</strong> We will get back to you as soon as we can.
+      <!-- SUCCESS MESSAGE -->
+      <div class="success-msg" id="success-msg">
+        <strong>Your order has been received!</strong>
+        We will call or WhatsApp you on the number you provided within 2 minutes to confirm your order and give you an estimated delivery time. If you do not hear from us, call us directly on <strong>+267 72359988</strong>.
+        <br /><br />
       </div>
 
     </div>
 
-    <!-- RIGHT: CONTACT DETAILS SIDEBAR -->
-    <aside class="contact-details-sidebar">
-      <h2>Contact Details</h2>
-      <p class="sidebar-intro">
-        We are a delivery-only service, so there is no physical counter to walk up to. Everything goes through phone, WhatsApp or email.
-      </p>
+    <!-- RIGHT: ORDER SUMMARY PANEL -->
+    <aside class="order-summary">
 
-      <div class="info-block">
-        <div class="info-content">
-          <div class="info-title">Location</div>
-          <div class="info-text">Gaborone CBD, Botswana</div>
-          <div class="info-sub">Delivery only &mdash; we do not have a walk-in location.</div>
+      <div class="summary-card">
+        <h3> Order Summary</h3>
+        <div id="summary-items">
+          <!-- filled by JS -->
+        </div>
+        <div class="summary-total-row">
+          <span class="summary-total-label">Total</span>
+          <span class="summary-total-val" id="summary-total">P0</span>
+        </div>
+        <div class="free-delivery-note" id="delivery-note">
+          <!-- filled by JS -->
         </div>
       </div>
 
-      <div class="info-block">
-        <div class="info-content">
-          <div class="info-title">Delivery Fee</div>
-          <div class="info-text">Free on orders over P100</div>
-          <div class="info-sub">P20 flat fee for orders under P100 within our delivery zones.</div>
-        </div>
+      <a href="menu.html" class="back-to-menu">← Edit Cart / Add More Items</a>
+
+      <div class="summary-card" style="margin-top:14px; background:var(--teal-dark); color:var(--teal-light);">
+        <h3 style="color:#fff; border-bottom-color:rgba(255,255,255,0.1);"> Need Help?</h3>
+        <p style="font-size:13px; line-height:1.8;">
+          Call us directly:<br>
+          <a href="tel:+26772359988" style="color:var(--gold); font-weight:700; font-size:16px;">+267 72359988</a><br>
+        </p>
       </div>
 
-      <!-- HOURS -->
-      <div class="hours-block">
-        <div class="hours-block-title">Ordering Hours</div>
-        <div class="hours-row">
-          <span class="hours-day">Monday</span>
-          <span class="hours-time">08:00 &ndash; 22:00</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Tuesday</span>
-          <span class="hours-time">08:00 &ndash; 22:00</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Wednesday</span>
-          <span class="hours-time">08:00 &ndash; 22:00</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Thursday</span>
-          <span class="hours-time">08:00 &ndash; 22:00</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Friday</span>
-          <span class="hours-time">08:00 &ndash; 22:00</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Saturday</span>
-          <span class="hours-time">09:00 &ndash; 21:00</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Sunday</span>
-          <span class="hours-time">10:00 &ndash; 17:00</span>
-        </div>
-      </div>
-
-      <!-- DELIVERY ZONES -->
-      <div class="zones-block">
-        <div class="zones-title">Delivery Zones</div>
-        <ul class="zones-list">
-          <li>Gaborone CBD</li>
-          <li>Broadhurst</li>
-          <li>Tlokweng</li>
-          <li>Mogoditshane</li>
-          <li>Phakalane</li>
-          <li>Extension 15</li>
-        </ul>
-      </div>
     </aside>
   </div>
 
-  <!-- WAYS TO REACH US -->
-  <section class="other-ways">
-    <span class="top-label">More Ways to Reach Us</span>
-    <h2>We Are on Multiple Channels</h2>
-    <p class="intro">
-      The contact form is fine for most things, but sometimes a quick message or call is faster. Here are all the ways you can get hold of us.
-    </p>
-    <div class="ways-grid">
-
-      <div class="way-card">
-        <h3>Call Us Directly</h3>
-        <p>Best for urgent orders, last-minute changes, or if you want to confirm something before placing an order. We pick up during ordering hours.</p>
-        <a href="tel:+26772359988">+267 72359988</a>
-      </div>
-
-      <div class="way-card">
-        <h3>WhatsApp</h3>
-        <p>Send us a message on WhatsApp for anything that is not urgent. We check it regularly and it is often the easiest way to sort out a quick question.</p>
-        <a href="https://wa.me/26772359988">Chat on WhatsApp</a>
-      </div>
-
-      <div class="way-card">
-        <h3>Email</h3>
-        <p>Good for longer messages, complaints that need a proper written response, or catering and bulk order enquiries where you need something in writing.</p>
-        <a href="mailto:info@MatuxKitchen.co.bw">info@MatuxKitchen.co.bw</a>
-      </div>
-
-      <div class="way-card">
-        <span class="way-icon">&#128203;</span>
-        <h3>Use the Form</h3>
-        <p>The contact form on this page is the right option when you need to give us a lot of detail — like a clarity on a specific dish, any dietary preferences or an event catering request.</p>
-        <a href="#contact-message">Go to the form &uarr;</a>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    <span class="footer-logo">Matux Kitchen</span>
-    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
-    <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
-    <hr>
-    <section id="social media">
-        <a href="https://www.facebook.com/MatuxKitchen" target="_blank"><img src="FB.jpg" alt="Facebook"></a>
-        <a href="https://wa.me/26772359988" target="_blank"><img src="WA.jpg" alt="WhatsApp"></a>
-  </footer>
-
+  <!-- SCRIPTS -->
+  <script src="cart.js"></script>
   <script>
-    function showSuccess() {
-      var el = document.getElementById('contact-success');
-      el.style.display = 'block';
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-  </script>
 
+    /* ── on load: populate form and summary from cart ────── */
+    window.addEventListener('DOMContentLoaded', () => {
+      populatePage();
+    });
+
+    function populatePage() {
+      const items = Cart.get();
+      const orderField = document.getElementById('order-items');
+      const form = document.getElementById('order-form');
+      const warning = document.getElementById('empty-warning');
+      const submitBtn = document.getElementById('submit-btn');
+
+      /* fill the order textarea */
+      if (items.length) {
+        orderField.value = Cart.orderSummary();
+        form.style.display = 'block';
+        warning.style.display = 'none';
+        submitBtn.disabled = false;
+      } else {
+        orderField.value = '';
+        form.style.display = 'none';
+        warning.style.display = 'block';
+        submitBtn.disabled = true;
+      }
+
+      /* fill the summary panel */
+      renderSummary();
+    }
+
+    function renderSummary() {
+      const items = Cart.get();
+      const container = document.getElementById('summary-items');
+      const totalEl = document.getElementById('summary-total');
+      const noteEl = document.getElementById('delivery-note');
+      const total = Cart.total();
+
+      totalEl.textContent = 'P' + total;
+
+      if (!items.length) {
+        container.innerHTML = `<div class="summary-empty"><span>🛒</span><p>No items yet</p></div>`;
+        noteEl.innerHTML = '';
+        return;
+      }
+
+      container.innerHTML = items.map(item => `
+        <div class="summary-item">
+          <div class="si-left">
+            <div class="si-name">${item.name}</div>
+            <div class="si-qty">Qty: ${item.qty} × P${item.price}</div>
+          </div>
+          <div class="si-price">P${item.price * item.qty}</div>
+        </div>
+      `).join('');
+
+      /* delivery note */
+      if (total >= 100) {
+        noteEl.className = 'free-delivery-note';
+        noteEl.innerHTML = '🎉 <strong>Free delivery</strong> applied to your order!';
+      } else {
+        const remaining = 100 - total;
+        noteEl.className = 'free-delivery-note not-yet';
+        noteEl.innerHTML = `➕ Add <strong>P${remaining}</strong> more for free delivery`;
+      }
+    }
+
+    /* ── submit order ────────────────────────────────────── */
+    function submitOrder(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = '⏳ Placing your order...';
+      btn.disabled = true;
+
+      /* simulate a short delay then show success */
+      setTimeout(() => {
+        document.getElementById('order-form').style.display = 'none';
+        const msg = document.getElementById('success-msg');
+        msg.style.display = 'block';
+        msg.scrollIntoView({ behavior:'smooth', block:'start' });
+
+        /* clear the cart after successful order */
+        Cart.clear();
+        renderSummary();
+        document.getElementById('order-items').value = '';
+      }, 1200);
+    }
+
+    /* re-render if cart changes in another tab */
+    window.addEventListener('cartUpdated', populatePage);
+
+  </script>
 </body>
 </html>

@@ -75,7 +75,7 @@
     .menu-sidebar {
       width: 220px;
       flex-shrink: 0;
-      background-color: #fff;
+      background-color: #00897b;
       border-right: 1px solid #e0e0e0;
       padding: 30px 20px;
       position: sticky;
@@ -196,9 +196,9 @@
       letter-spacing: 0.5px;
     }
     .badge-best { background-color: #00897b; color: #fff; }
-    .badge-new { background-color: #004d40; color: #fff; }
-    .badge-veg { background-color: #e0f2f1; color: #00695c; }
-    .badge-spicy { background-color: #fff3e0; color: #e65100; }
+    .badge-new { background-color: #00897b; color: #fff; }
+    .badge-pop { background-color: #00897b; color: #fff; }
+
     .dish-desc {
       font-size: 14px;
       color: #777;
@@ -296,6 +296,121 @@
     .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
     .footer-links a:hover { color: #fff; }
 
+     /* ADD TO CART BUTTON */
+    .add-to-cart {
+      display:flex; align-items:center; gap:8px;
+      background:var(--teal);
+      color:#fff; border:none;
+      padding:9px 20px; border-radius:6px;
+      font-size:13px; font-weight:700;
+      font-family:'DM Sans',sans-serif;
+      cursor:pointer;
+      transition:all 0.25s;
+    }
+    .add-to-cart:hover { background:var(--teal-mid); transform:translateY(-1px); }
+    .add-to-cart.added { background:#2e7d32; }
+
+     /* ── CART DRAWER ──────────────────────────────────────── */
+    .cart-overlay {
+      display:none;
+      position:fixed; inset:0;
+      background:rgba(0,0,0,0.45);
+      z-index:500;
+    }
+    .cart-drawer {
+      position:fixed; top:0; right:0; bottom:0;
+      width:380px; max-width:100vw;
+      background:#fff;
+      box-shadow:-8px 0 40px rgba(0,0,0,0.15);
+      z-index:501;
+      display:flex; flex-direction:column;
+      transform:translateX(100%);
+      transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .cart-drawer.open { transform:translateX(0); }
+    .cart-overlay.open { display:block; }
+
+    .drawer-head {
+      background:var(--teal-dark); color:#fff;
+      padding:20px 22px;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-shrink:0;
+    }
+    .drawer-head h2 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; }
+    .close-drawer {
+      background:rgba(255,255,255,0.15); border:none;
+      color:#fff; width:34px; height:34px;
+      border-radius:6px; font-size:20px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:background 0.2s;
+    }
+    .close-drawer:hover { background:rgba(255,255,255,0.25); }
+
+    .drawer-items { flex:1; overflow-y:auto; padding:18px; }
+
+    .cart-empty {
+      text-align:center; padding:60px 20px;
+      color:#aaa;
+    }
+    .cart-empty span { font-size:52px; display:block; margin-bottom:14px; }
+    .cart-empty p { font-size:15px; }
+
+    .cart-item {
+      display:flex; align-items:center; gap:12px;
+      padding:14px 0;
+      border-bottom:1px solid #f0f0f0;
+    }
+    .cart-item:last-child { border-bottom:none; }
+    .ci-emoji { font-size:30px; flex-shrink:0; }
+    .ci-info { flex:1; }
+    .ci-name { font-size:14px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+    .ci-price { font-size:13px; color:var(--teal); font-weight:700; }
+    .ci-controls { display:flex; align-items:center; gap:8px; }
+    .qty-btn {
+      width:28px; height:28px; border-radius:6px;
+      border:1.5px solid #e0e0e0; background:#fff;
+      font-size:16px; cursor:pointer; font-weight:700;
+      display:flex; align-items:center; justify-content:center;
+      transition:all 0.15s;
+    }
+    .qty-btn:hover { border-color:var(--teal); color:var(--teal); }
+    .qty-num { font-size:14px; font-weight:700; color:var(--ink); min-width:20px; text-align:center; }
+    .remove-btn { background:none; border:none; color:#ccc; cursor:pointer; font-size:18px; padding:4px; transition:color 0.2s; }
+    .remove-btn:hover { color:#e53935; }
+
+    .drawer-footer { padding:18px; border-top:1px solid #f0f0f0; flex-shrink:0; }
+    .cart-total-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+    .cart-total-label { font-size:14px; color:#888; }
+    .cart-total-price { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--teal-dark); }
+    .checkout-btn {
+      width:100%; background:var(--teal-dark); color:#fff;
+      border:none; padding:15px; border-radius:8px;
+      font-size:15px; font-weight:700; cursor:pointer;
+      font-family:'DM Sans',sans-serif;
+      transition:background 0.25s;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .checkout-btn:hover { background:var(--teal); }
+    .checkout-btn:disabled { background:#ccc; cursor:not-allowed; }
+    .clear-btn { width:100%; background:none; border:1px solid #e0e0e0; color:#999; padding:10px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; margin-top:8px; transition:all 0.2s; }
+    .clear-btn:hover { border-color:#e53935; color:#e53935; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding:0 16px; }
+      nav ul { display:none; }
+      .menu-wrapper { flex-direction:column; }
+      .sidebar { width:100%; height:auto; position:static; border-right:none; border-bottom:1px solid #e0e0e0; padding:16px; }
+      .sidebar ul { display:flex; flex-wrap:wrap; gap:6px; }
+      .sidebar ul li a { padding:5px 12px; font-size:13px; border-left:none; border-bottom:3px solid transparent; border-radius:6px; }
+      .sidebar ul li a:hover, .sidebar ul li a.active { border-left:none; border-bottom-color:var(--teal); }
+      .menu-main { padding:24px 16px; }
+      .dish { flex-direction:column; }
+      .dish-img { width:100%; height:160px; }
+      .cart-drawer { width:100vw; }
+      .notice { padding:12px 16px; }
+    }
+
   </style>
 </head>
 <body>
@@ -354,7 +469,7 @@
               <p class="dish-desc">Crispy, golden fried rolled sushi-styled with savory fillings and drizzled with our rich, flavourful signature sauces.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P60</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                 <button class="add-to-cart" onclick="addItem('sushi-fried','Famous Matux Fried Sushi',60,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -368,7 +483,7 @@
               <p class="dish-desc">A refreshing mix of creamy avocado, crisp cucumber, rolled with a sprinkle of sesame seeds.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P55</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('sushi-california','California Roll Sushi',55,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -382,7 +497,7 @@
               <p class="dish-desc">Chilled slices of fresh salmon over seasoned rice that melts in your mouth.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P55</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                 <button class="add-to-cart" onclick="addItem('sushi-salmon','Salmon Roll Sushi',55,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -396,7 +511,7 @@
               <p class="dish-desc">Finger-licking wings tossed in a thick,smoky BBQ glaze.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P45</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('wings-bbq','Sticky BBQ Wings',45,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -409,8 +524,8 @@
               </div>
               <p class="dish-desc">Crunchy pastry triangles filled with savory minced chicken and spices.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">P25</span><span class="dish-prep">8 min prep</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P25</span></div>
+                <button class="add-to-cart" onclick="addItem('samosas','Samosas',25,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -434,7 +549,7 @@
               <p class="dish-desc"></p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P60</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('stew-beef','Slow Beef Stew',60,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -449,7 +564,7 @@
               <p class="dish-desc">Perfectly crafted, seasoned beef burger served with a side of crispy crinkle cut fries.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P50</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('burger-fries','Burger and Fries',50,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -463,7 +578,7 @@
               <p class="dish-desc">Fried chicken wings tossed in our signature sauce, served alongside crispy crinkle cut fries.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P60</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('wings-fries','Wings and Fries',60,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -477,7 +592,7 @@
               <p class="dish-desc">Juicy, seared to perfection steak served with a side of crispy crinkle cut fries.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P65</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('steak-fries','Steak and Fries',65,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -490,8 +605,8 @@
               </div>
               <p class="dish-desc">A massive juicy patty smothered in melted cheese with all the fixings.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">40</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P40</span></div>
+                <button class="add-to-cart" onclick="addItem('cheese-deluxe','Cheese Deluxe Burger',40,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -505,7 +620,7 @@
               <p class="dish-desc">Fried chicken breast layered with a creamy sauce and fresh toppings.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P40</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('chicken-burger','Chicken Burger',40,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -518,8 +633,8 @@
               </div>
               <p class="dish-desc">A flame grilled beef patty layered over a soft bun with all the fixings.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">P40</span><span class="dish-prep">15 min prep</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P40</span></div>
+                <button class="add-to-cart" onclick="addItem('beef-burger','Beef Burger',40,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -530,10 +645,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">BBQ Chicken Pizza</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">A delicious, tangy BBQ chicken pizza with mozarella, cilantro, on a crispy crust.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">P80</span><span class="dish-prep">15 min prep</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P80</span></div>
+                <button class="add-to-cart" onclick="addItem('bbq-chicken-pizza','BBQ Chicken Pizza',80,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -544,10 +659,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Pepperoni Pizza</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Classic red sauce pizza with pepperoni toppings and lots of mozzarella.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">P80</span><span class="dish-prep">15 min prep</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P80</span></div>
+                <button class="add-to-cart" onclick="addItem('pepperoni-pizza','Pepperoni Pizza',80,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -558,10 +673,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Tacos</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Fresh tortillas filled with seasoned meat of your choice with vegetables and our signature sauce.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P50</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('tacos','Tacos',50,this)">+ Add to Cart</button>
               </div>
             </div>           
         </div>
@@ -583,7 +698,7 @@
               <p class="dish-desc">Crispy golden crinkle cut fries.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P20</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('fries','Fries',20,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -597,7 +712,7 @@
               <p class="dish-desc">Crispy golden crinkle cut fries topped with melted cheese, bacon bits, and a drizzle of sour cream.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P30</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('loaded-fries','Loaded Fries',30,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -611,7 +726,7 @@
               <p class="dish-desc">A soft tortilla filled with your choice of grilled chicken, beef, or vegetables.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P25</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('wrap','Wrap',25,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -626,7 +741,7 @@
               <p class="dish-desc">Freshly baked bread with garlic, herbs and butter.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P30</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('garlic-bread','Garlic Bread',30,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -650,7 +765,7 @@
               <p class="dish-desc">Tender, juicy chicken layered over perfectly cooked pasta, all smothered in a cheesy alfredo sauce made from fresh cream, garlic and parmesan.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P80</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('chicken-alfredo-pasta','Chicken Alfredo Pasta',80,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -661,10 +776,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Creamy Mushroom Pasta</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Creamy parmesan mushroom sauce over tender pasta, with a hint of garlic and black pepper.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P80</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('creamy-mushroom-pasta','Creamy Mushroom Pasta',80,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -675,10 +790,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Beef Bolognese</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Slow-simmered beef, tomato and herbs over tender pasta.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P80</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('beef-bolognese','Beef Bolognese',80,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -699,10 +814,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Chicken Caesar Salad</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Crisp romaine lettuce tossed in caesar dressing, grilled chicken and shaved parmesan.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P45</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('chicken-caesar-salad','Chicken Caesar Salad',45,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -713,10 +828,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Green Salad</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Mixed greens with cucumber, cherry tomatoes, red onions and a dressing of your choice.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P40</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('green-salad','Green Salad',40,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -741,7 +856,7 @@
               <p class="dish-desc">A traditional dessert made with sorghum flour, topped with cinnamon sauce.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P30</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('sorghum-cake','Sorghum Cake',30,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -753,10 +868,10 @@
                 <h3 class="dish-name">Chocolate Cake</h3>
                 <div class="dish-badges"><span class="badge badge-veg">Best Seller</span></div>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Classic chocolate cake with pure fudge frosting topped with shaved chocolate.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P40</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('chocolate-cake','Chocolate Cake',40,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -767,10 +882,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Vanilla Cheesecake</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Classic vanilla cheesecake topped with whipped cream, with a graham cracker crust.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P40</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('vanilla-cheesecake','Vanilla Cheesecake',40,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -781,26 +896,28 @@
               <div class="dish-top">
                 <h3 class="dish-name">Tiramisu</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Lightly coffee-drenched tiramisu topped with dark cocoa.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P35</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('tiramisu','Tiramisu',35,this)">+ Add to Cart</button>
               </div>
             </div>
+          </div>
 
             <div class="dish-item">
-            <div class="dish-img"><img src="images/milk tart.jpg" alt="Milk Tart"></div>
-            <div class="dish-details">
+              <div class="dish-img"><img src="images/milk tart.jpg" alt="Milk Tart"></div>
+              <div class="dish-details">
               <div class="dish-top">
                 <h3 class="dish-name">Milk Tart</h3>
               </div>
-              <p class="dish-desc"></p>
+              <p class="dish-desc">Buttery crust filled with smooth milk crust and a hint of cinnamon</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P20</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('milk-tart','Milk Tart',20,this)">+ Add to Cart</button>
+                </div>
+                </div>
               </div>
-            </div>
-        </div>  
+
       </section>
 
 
@@ -820,7 +937,7 @@
               <p class="dish-desc">Coca-Cola, Fanta Orange or Sprite. Delivered cold. If you want a specific one, mention it in the order notes and we will do our best.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P12</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('soft-drinks','Soft Drinks (330ml)',12,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -834,7 +951,7 @@
               <p class="dish-desc">Chocolate, vanilla or strawberry. Creamy and delicious. If you want a specific one, mention it in the order notes and we will do our best.</p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P15</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('milkshakes','Milkshakes',15,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -848,7 +965,7 @@
               <p class="dish-desc">A sealed 500ml bottle of still water. </p>
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P8</span></div>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <button class="add-to-cart" onclick="addItem('still-water','Still Water (500ml)',8,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -857,21 +974,22 @@
       </section>
 
       <!-- COMBOS -->
-      <section class="menu-category" id="combos">
+       <section class="menu-category" id="combos">
         <div class="category-header">
           <h2>Combo Deals</h2>
+          <span class="category-count">3 items</span>
         </div>
         <div class="dish-list">
 
           <div class="dish-item">
             <div class="dish-details">
               <div class="dish-top">
-                <h3 class="dish-name">Lunch Deal</h3>
-                </div>
-              <p class="dish-desc">Any main course + one side + one soft drink/milkshake of your choice. Good option for a solo lunch order during the week.</p>
+                <h3 class="dish-name">Lunch Deal &mdash; Solo</h3>
+              </div>
+              <p class="dish-desc">Any main course + one side + one soft drink or milkshake. Works out cheaper than ordering them separately. Good option for a solo lunch order during the week.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">P100</span>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P100</span></div>
+                <button class="add-to-cart" onclick="addItem('lunch-deal-solo','Lunch Deal - Solo',100,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -881,10 +999,10 @@
               <div class="dish-top">
                 <h3 class="dish-name">Family Meal Deal</h3>
               </div>
-              <p class="dish-desc">Three main courses + three sides + two soft drinks or milkshakes of your choice. Feeds whole families comfortably.</p>
+              <p class="dish-desc">Three main courses + three sides + three soft drinks or milkshakes. Good for sharing.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">P250</span>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P250</span></div>
+                <button class="add-to-cart" onclick="addItem('family-meal-deal','Family Meal Deal',250,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -892,12 +1010,13 @@
           <div class="dish-item">
             <div class="dish-details">
               <div class="dish-top">
-                <h3 class="dish-name">Office Order</h3>
+                <h3 class="dish-name">Office Order </h3>
+                <div class="dish-badges"><span class="badge badge-new">New</span></div>
               </div>
-              <p class="dish-desc">Five mains + five sides + five drinks, all delivered together.</p>
+              <p class="dish-desc">Six mains + Six sides + Six drinks, all delivered together to one address.</p>
               <div class="dish-bottom">
-                <div><span class="dish-price-tag">P350</span>
-                <a href="feedback.html" class="order-btn">+ Add to Order</a>
+                <div><span class="dish-price-tag">P400</span></div>
+                <button class="add-to-cart" onclick="addItem('office-order','Office Order',400,this)">+ Add to Cart</button>
               </div>
             </div>
           </div>
@@ -932,5 +1051,133 @@
     </section>
   </footer>
 
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="drawer-head">
+      <h2>🛒 Your Cart</h2>
+      <button class="close-drawer" onclick="closeCart()">✕</button>
+    </div>
+
+    <div class="drawer-items" id="drawer-items">
+      <!-- filled by JS -->
+    </div>
+
+    <div class="drawer-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Order Total</span>
+        <span class="cart-total-price" id="drawer-total">P0</span>
+      </div>
+      <button class="checkout-btn" id="checkout-btn" onclick="goCheckout()">
+        Proceed to Checkout →
+      </button>
+      <button class="clear-btn" onclick="clearCart()">Remove All Items</button>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="cart.js"></script>
+  <script>
+
+    /* ── open / close drawer ─────────────────────────────── */
+    function openCart() {
+      document.getElementById('cart-drawer').classList.add('open');
+      document.getElementById('cart-overlay').classList.add('open');
+      renderDrawer();
+    }
+    function closeCart() {
+      document.getElementById('cart-drawer').classList.remove('open');
+      document.getElementById('cart-overlay').classList.remove('open');
+    }
+
+    /* ── add item, flash button ──────────────────────────── */
+    function addItem(id, name, price, btn) {
+      Cart.add(id, name, price);
+      btn.textContent = '✓ Added';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = '+ Add to Cart';
+        btn.classList.remove('added');
+      }, 1500);
+      if (document.getElementById('cart-drawer').classList.contains('open')) {
+        renderDrawer();
+      }
+    }
+
+    /* ── render the drawer contents ──────────────────────── */
+    function renderDrawer() {
+      const items = Cart.get();
+      const container = document.getElementById('drawer-items');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      const total = document.getElementById('drawer-total');
+
+      total.textContent = 'P' + Cart.total();
+
+      if (!items.length) {
+        container.innerHTML = `
+          <div class="cart-empty">
+            <span>🛒</span>
+            <p>Your cart is empty.<br>Pick something from the menu!</p>
+          </div>`;
+        checkoutBtn.disabled = true;
+        return;
+      }
+
+      checkoutBtn.disabled = false;
+
+      const emojis = {
+        'sushi-fried':'🍱','sushi-classic':'🥢','pasta-alfredo':'🍝',
+        'pasta-bolo':'🍅','burger-classic':'🍔','burger-smash':'🧀',
+        'main-chicken':'🍛','main-wrap':'🥗','dessert-sorghum':'🎂',
+        'dessert-icecream':'🍨','drink-soft':'🥤','drink-juice':'🧃','drink-water':'💧'
+      };
+
+      container.innerHTML = items.map(item => `
+        <div class="cart-item">
+          <span class="ci-emoji">${emojis[item.id] || '🍽️'}</span>
+          <div class="ci-info">
+            <div class="ci-name">${item.name}</div>
+            <div class="ci-price">P${item.price} each &nbsp;·&nbsp; P${item.price * item.qty} total</div>
+          </div>
+          <div class="ci-controls">
+            <button class="qty-btn" onclick="changeQty('${item.id}', ${item.qty - 1})">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${item.id}', ${item.qty + 1})">+</button>
+            <button class="remove-btn" onclick="removeItem('${item.id}')" title="Remove">🗑</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function changeQty(id, qty) {
+      Cart.setQty(id, qty);
+      renderDrawer();
+    }
+    function removeItem(id) {
+      Cart.remove(id);
+      renderDrawer();
+    }
+    function clearCart() {
+      if (confirm('Remove all items from your cart?')) {
+        Cart.clear();
+        renderDrawer();
+      }
+    }
+
+    /* ── go to checkout ─────────────────────────────────── */
+    function goCheckout() {
+      if (!Cart.count()) return;
+      window.location.href = 'contact.html';
+    }
+
+    /* ── keep drawer in sync if open ───────────────────── */
+    window.addEventListener('cartUpdated', () => {
+      if (document.getElementById('cart-drawer').classList.contains('open')) {
+        renderDrawer();
+      }
+    });
+
+  </script>
 </body>
 </html>
+

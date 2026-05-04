@@ -125,7 +125,7 @@
     }
     .step:last-child .step-arrow { display: none; }
 
-    /* ---- STATS BAR ---- */
+     /* ---- STATS BAR ---- */
     .stats-bar {
       background-color: #00695c;
       display: flex;
@@ -235,7 +235,7 @@
       background-color: #002b25;
       color: #80cbc4;
       text-align: center;
-      padding: 40px 20px;
+      padding: 40px;
       font-size: 14px;
       line-height: 1.8;
       margin-top: 60px;
