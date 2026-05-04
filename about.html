@@ -111,48 +111,6 @@
       line-height: 1.5;
     }
 
-    /* ---- MISSION & VISION ---- */
-    .mv-section {
-      background-color: #f0f0f0;
-      padding: 70px 60px;
-    }
-    .mv-section .top-label {
-      display: inline-block;
-      color: #00897b;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .mv-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      color: #222;
-      margin: 0 0 40px;
-    }
-    .mv-cards { display: flex; gap: 25px; flex-wrap: wrap; }
-    .mv-card {
-      flex: 1;
-      min-width: 240px;
-      background-color: #fff;
-      padding: 35px 30px;
-      border-top: 4px solid #00897b;
-    }
-    .mv-icon { font-size: 36px; margin-bottom: 15px; display: block; }
-    .mv-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: #00695c;
-      margin: 0 0 12px;
-    }
-    .mv-card p {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.8;
-      margin: 0;
-    }
-
     /* ---- HOW WE STARTED ---- */
     .timeline-section {
       background-color: #fff;
@@ -216,12 +174,12 @@
       margin: 0;
     }
 
-    /* ---- VALUES ---- */
-    .values-section {
-      background-color: #fff;
+     /* ---- MISSION & VISION ---- */
+    .mv-section {
+      background-color: #f0f0f0;
       padding: 70px 60px;
     }
-    .values-section .top-label {
+    .mv-section .top-label {
       display: inline-block;
       color: #00897b;
       font-size: 12px;
@@ -230,52 +188,35 @@
       font-weight: 700;
       margin-bottom: 12px;
     }
-    .values-section h2 {
+    .mv-section h2 {
       font-family: 'Playfair Display', serif;
       font-size: 36px;
       color: #222;
       margin: 0 0 40px;
     }
-    .values-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; max-width: 700px; }
-    .values-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      padding: 22px 25px;
-      background-color: #f9f9f9;
-      border-left: 4px solid #00897b;
+    .mv-cards { display: flex; gap: 25px; flex-wrap: wrap; }
+    .mv-card {
+      flex: 1;
+      min-width: 240px;
+      background-color: #fff;
+      padding: 35px 30px;
+      border-top: 4px solid #00897b;
     }
-    .value-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
-    .value-text h4 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #222;
-      margin: 0 0 5px;
+    .mv-icon { font-size: 36px; margin-bottom: 15px; display: block; }
+    .mv-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #00695c;
+      margin: 0 0 12px;
     }
-    .value-text p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.7;
+    .mv-card p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.8;
       margin: 0;
     }
 
-    .cta-section {
-      background: linear-gradient(135deg, #004d40, #00897b);
-      text-align: center;
-      padding: 75px 40px;
-      color: #fff;
-    }
-    .cta-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      margin-bottom: 14px;
-    }
-    .cta-section p {
-      font-size: 17px;
-      color: white;
-      margin-bottom: 35px;
-      font-weight: 300;
-    }
+    /* ---- FOOTER ---- */
     footer {
       background-color: #002b25;
       color: #80cbc4;
@@ -288,7 +229,9 @@
     .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 5px; }
     .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
     .footer-links a:hover { color: #fff; }
-
+    #social media { margin-top: 20px; }
+    #social media a { display: inline-block; margin: 0 10px; }
+    #social media img { width: 30px; height: 30px; }
   </style>
 </head>
 <body>
@@ -411,12 +354,13 @@
   </section>
 
 <footer>
-    <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
-    <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
-    <hr>
-    <section id="social media">
-        <a href="https://www.facebook.com/MatuxKitchen" target="_blank"><img src="FB.jpg" alt="Facebook"></a>
-        <a href="https://wa.me/26772359988" target="_blank"><img src="WA.jpg" alt="WhatsApp"></a>
+  <span class="footer-logo">Matux Kitchen</span>
+  <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
+  <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
+  <hr>
+  <section id="social media">
+    <a href="https://www.facebook.com/MatuxKitchen" target="_blank"><img src="FB.jpg" alt="Facebook"></a>
+    <a href="https://wa.me/26772359988" target="_blank"><img src="WA.jpg" alt="WhatsApp"></a>
     </section>  
   </footer>
 
