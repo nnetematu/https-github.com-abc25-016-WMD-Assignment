@@ -268,19 +268,18 @@
 
     /* ---- COMBOS STYLING ---- */
     #combos .dish-list {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 16px;
     }
     #combos .dish-item {
-      flex: 1;
-      min-width: 280px;
-      flex-direction: column;
-      align-items: flex-start;
+      background-color: #fff;
+      border: 1px solid #e8e8e8;
+      transition: box-shadow 0.3s;
+      overflow: hidden;
     }
+    #combos .dish-item:hover { box-shadow: 0 4px 18px rgba(0,137,123,0.12); }
     #combos .dish-details {
-      width: 100%;
       padding: 20px;
     }
 
@@ -296,6 +295,14 @@
     }
     .allergen-note strong { color: #e65100; }
 
+      /* ---- FOOTER ---- */
+      footer {
+        background-color: #00897b;
+        color: #e0f2f1;
+        text-align: center;
+        padding: 40px;
+        font-size: 14px;
+      }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
     .footer-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 5px; }
     .footer-links a { color: #80cbc4; text-decoration: none; font-size: 13px; }
