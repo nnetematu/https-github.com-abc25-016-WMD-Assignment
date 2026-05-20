@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matux Kitchen- Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css" />
   <style>
 
@@ -407,22 +408,66 @@
     .clear-btn { width:100%; background:none; border:1px solid #e0e0e0; color:#999; padding:10px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; margin-top:8px; transition:all 0.2s; }
     .clear-btn:hover { border-color:#e53935; color:#e53935; }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding:0 16px; }
-      nav ul { display:none; }
-      .menu-wrapper { flex-direction:column; }
-      .menu-main { padding:24px 16px; }
-      .dish { flex-direction:column; }
-      .dish-img { width:100%; height:160px; }
-      .cart-drawer { width:100vw; }
-      .notice { padding:12px 16px; }
-      .menu-sidebar { width:100%; height:auto; position:static; border-right:none; border-bottom:1px solid #e0e0e0; padding:16px; }
-      .menu-sidebar ul { display:flex; flex-wrap:wrap; gap:6px; }
-      .menu-sidebar ul li a { padding:5px 12px; font-size:13px; border-left:none; border-bottom:3px solid transparent; border-radius:6px; }
-      .menu-sidebar ul li a:hover, .menu-sidebar ul li a.active { border-left:none; border-bottom-color:var(--teal); }
-    }
+   @media (max-width: 768px) {
 
+  .dish-item {
+     flex-direction: column;
+   }
+
+  /* Make image full width on mobile */
+  .dish-img {
+    width: 100%;
+    height: 200px;
+  }
+
+  /* Give text area proper padding */
+  .dish-details {
+    padding: 14px 16px;
+    width: 100%;
+  }
+
+  /* Make dish name and price readable */
+  .dish-name {
+    font-size: 16px;
+  }
+
+  .dish-price-tag {
+    font-size: 18px;
+  }
+
+  /* Make Add to Cart button full width and easy to tap */
+  .add-to-cart {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  /* Fix dish bottom row stacking */
+  .dish-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Fix menu sidebar on mobile */
+  .menu-sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  /* Fix menu wrapper stacking */
+  .menu-wrapper {
+    flex-direction: column;
+  }
+
+  /* Fix menu main padding */
+  .menu-main {
+    padding: 20px 16px;
+  }
+
+}
   </style>
 </head>
 <body>
@@ -685,7 +730,7 @@
             </div>
           </div>
 
-        <div class="dish-item">
+          <div class="dish-item"></div>
             <div class="dish-img"><img src="images/pizza.jpg" alt="Pepperoni Pizza"></div>
             <div class="dish-details">
               <div class="dish-top">
@@ -710,7 +755,8 @@
                 <div><span class="dish-price-tag">P50</span></div>
                 <button class="add-to-cart" onclick="addItem('tacos','Tacos',50,this)">+ Add to Cart</button>
               </div>
-            </div>           
+            </div> 
+          </div> 
         </div>
       </section>
 
@@ -829,7 +875,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -867,7 +912,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -936,9 +980,9 @@
             </div>
           </div>
 
-            <div class="dish-item">
-              <div class="dish-img"><img src="images/milk tart.jpg" alt="Milk Tart"></div>
-              <div class="dish-details">
+          <div class="dish-item">
+            <div class="dish-img"><img src="images/milk tart.jpg" alt="Milk Tart"></div>
+            <div class="dish-details">
               <div class="dish-top">
                 <h3 class="dish-name">Milk Tart</h3>
               </div>
@@ -946,10 +990,10 @@
               <div class="dish-bottom">
                 <div><span class="dish-price-tag">P20</span></div>
                 <button class="add-to-cart" onclick="addItem('milk-tart','Milk Tart',20,this)">+ Add to Cart</button>
-                </div>
-                </div>
               </div>
-
+            </div>
+          </div>
+        </div>
       </section>
 
 
@@ -1001,12 +1045,10 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
-      <!-- COMBOS -->
-       <section class="menu-category" id="combos">
+      <section class="menu-category" id="combos">
         <div class="category-header">
           <h2>Combo Deals</h2>
           <span class="category-count">3 items</span>
@@ -1052,16 +1094,12 @@
               </div>
             </div>
           </div>
-
         </div>
-
         <!-- ALLERGEN NOTE -->
         <div class="allergen-note">
           <strong>Allergen information:</strong> Some of our dishes contain gluten, dairy, nuts or shellfish. If you have a specific allergy or dietary requirement, please mention it in the order notes when you place your order and we will do our best to accommodate you.
         </div>
-
       </section>
-
     </main>
   </div>
   
@@ -1069,11 +1107,17 @@
     <span class="footer-logo">Matux Kitchen</span>
     <p>Gaborone, Botswana &nbsp;|&nbsp; Tel: +267 72359988 &nbsp;|&nbsp; info@MatuxKitchen.co.bw</p>
     <p>&copy; 2026 Matux Kitchen. All rights reserved.</p>
-    <hr>
-    <section id="social media">
-      <a href="https://www.facebook.com/MatuxKitchen" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/MatuxKitchen" target="_blank">Instagram</a>
-    </section>
+    <section id="social-media" style="margin-top: 10px;">
+      <a href="#" title="Facebook" style="color: #80cbc4; font-size: 28px; margin: 0 10px;">
+       <i class="bi bi-facebook"></i>
+      </a>
+      <a href="#" title="Instagram" style="color: #80cbc4; font-size: 28px; margin: 0 10px;">
+       <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://wa.me/26772359988" target="_blank" title="WhatsApp" style="color: #80cbc4; font-size: 28px; margin: 0 10px;">
+       <i class="bi bi-whatsapp"></i>
+      </a>
+    </section>  
   </footer>
 
 <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
